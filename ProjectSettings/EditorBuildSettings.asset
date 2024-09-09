@@ -9,21 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MapTest.unity
+    path: Assets/Scenes/Map.unity
     guid: bb43c6f6cb4414620a7becd4ae0a7e17
   - enabled: 1
-    path: Assets/Scenes/School.unity
+    path: Assets/Scenes/Locations/School.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
-    path: Assets/Scenes/Restaurant.unity
+    path: Assets/Scenes/Locations/Restaurant.unity
     guid: 5e7e5bb84fbe542a08f0b7a6f006c46c
   - enabled: 1
-    path: Assets/Scenes/Zoo.unity
+    path: Assets/Scenes/Locations/Zoo.unity
     guid: 8cc1d362cd936499e9f2a558b4b70ecc
   - enabled: 1
-    path: Assets/Scenes/Store.unity
+    path: Assets/Scenes/Locations/Store.unity
     guid: e699ec1bf6a84470b896fbe65decf1fb
   - enabled: 1
-    path: Assets/Scenes/Home.unity
+    path: Assets/Scenes/Locations/Home.unity
     guid: 426e83182dfee4819b59bd0bce2bb9b2
   m_configObjects: {}

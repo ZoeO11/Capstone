@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class MainCam : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
     public bool ifMove;
     public Vector3 dir = new Vector3(0, 0, 0);
     public int speed = 5;
