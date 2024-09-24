@@ -1111,14 +1111,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charElements:
   - numShapes: 4
-    numStyles: 8
+    numSwatches: 8
     curIndex: 0
     element: Hair
     PNG: CharacterCreator/HairV2
     render: {fileID: 1933153055}
+  - numShapes: 4
+    numSwatches: 1
+    curIndex: 0
+    element: Outfit
+    PNG: CharacterCreator/Outfit
+    render: {fileID: 1933153055}
   curEl:
     numShapes: 0
-    numStyles: 0
+    numSwatches: 0
     curIndex: 0
     element: 
     PNG: 
