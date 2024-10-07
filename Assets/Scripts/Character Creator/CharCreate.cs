@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //notes: In this case an "element" is a part of our character (hair, outfit, eyebrow) Shape refers to the shape of the element.
 //The swatch, color, or style, will be called by element specific functions (ex:  ChangeHairColor())
@@ -119,6 +120,13 @@ public class CharCreate : MonoBehaviour
         nextIndex = PHairColor * curEl.numShapes + nextShapeTrack;
         pIndex = PHairColor * curEl.numShapes + pShapeTrack;
         ReRender();
+    }
+
+    public void ContinueButton()
+    {
+
+        SceneManager.LoadScene("Home");
+
     }
 
 

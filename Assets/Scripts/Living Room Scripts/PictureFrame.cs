@@ -33,6 +33,31 @@ public class PictureFrame : MonoBehaviour
         // Save the current image index so it persists
         PlayerPrefs.SetInt(saveKey, currentImageIndex);
         PlayerPrefs.Save();
+
+        // Add "picture" and "frame" to the vocabulary list
+        AddWordsToVocabulary();
     }
 
+    private void AddWordsToVocabulary()
+    {
+        // Get the MainMenu instance to access player data
+        if (MainMenu.Instance != null)
+        {
+            SaveData playerData = MainMenu.Instance.GetPlayerData();  // Access the player's data
+
+            if (playerData != null)
+            {
+                playerData.AddOrUpdateWord("picture");
+                playerData.AddOrUpdateWord("frame");
+            }
+            else
+            {
+                Debug.LogWarning("Player data is null! Ensure the game is loaded properly.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("MainMenu instance not found! Ensure it is properly instantiated.");
+        }
+    }
 }
