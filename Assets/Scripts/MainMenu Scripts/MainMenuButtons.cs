@@ -8,6 +8,10 @@ public class MainMenu : MonoBehaviour
 {
     private string savePath1;
     private string savePath2;
+    private SaveData playerData;  // Store the player's data here
+    public GameObject mainMenuPrefab; // Declare mainMenuPrefab
+    public GameObject mainMenuUI;  // Declare the main menu UI
+    public static MainMenu Instance { get; private set; }  // Singleton instance
 
     void Start()
     {
@@ -16,16 +20,31 @@ public class MainMenu : MonoBehaviour
         savePath2 = Application.persistentDataPath + "/game2Save.json";
     }
 
+    private void Awake()
+    {
+        // Ensure only one instance of MainMenu exists
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // Keep this object across scenes
+        Debug.Log("MainMenu instance created");
+    }
+
     public void StartGame1()
     {
         if (File.Exists(savePath1))  // Check if save data for Game1 exists
         {
-            // Load Game1 from the last saved location
+            // Disable the main menu UI
+            mainMenuUI.SetActive(false);
             LoadGame(savePath1, "Game1");
         }
         else
         {
-            // Start a new game in the character creation scene
+            mainMenuUI.SetActive(false);  // Disable the menu UI when starting a new game
             SceneManager.LoadScene("CharCreation");
         }
     }
@@ -34,12 +53,12 @@ public class MainMenu : MonoBehaviour
     {
         if (File.Exists(savePath2))  // Check if save data for Game2 exists
         {
-            // Load Game2 from the last saved location
+            mainMenuUI.SetActive(false);  // Disable the menu UI
             LoadGame(savePath2, "Game2");
         }
         else
         {
-            // Start a new game in the character creation scene
+            mainMenuUI.SetActive(false);  // Disable the menu UI when starting a new game
             SceneManager.LoadScene("CharCreation");
         }
     }
@@ -64,17 +83,47 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Game2 saved");
     }
 
+    public void SaveGame1Caller()
+    {
+        if (playerData != null)
+        {
+            SaveGame1(playerData); // Call the existing method with playerData
+        }
+        else
+        {
+            Debug.LogWarning("Player data is null! Cannot save game.");
+        }
+    }
+
+    public void SaveGame2Caller()
+    {
+        if (playerData != null)
+        {
+            SaveGame2(playerData); // Call the existing method with playerData
+        }
+        else
+        {
+            Debug.LogWarning("Player data is null! Cannot save game.");
+        }
+    }
+
+
     void LoadGame(string savePath, string sceneName)
     {
         // Read the save data from the file
         string json = File.ReadAllText(savePath);
-        SaveData data = JsonUtility.FromJson<SaveData>(json);
+        playerData = JsonUtility.FromJson<SaveData>(json);  // Store the loaded data
 
         // Apply loaded data (for example, setting player attributes based on saved data)
-        Debug.Log("Loaded game for " + data.playerName);
+        Debug.Log("Loaded game for " + playerData.playerName);
 
         // Now proceed to the saved game scene
         SceneManager.LoadScene(sceneName);
+    }
+
+    public SaveData GetPlayerData()
+    {
+        return playerData;  // Access the loaded player data
     }
 
     public void OpenSettings()
