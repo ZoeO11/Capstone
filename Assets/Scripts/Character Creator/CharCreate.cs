@@ -35,8 +35,23 @@ public class CharCreate : MonoBehaviour
 
     void Start()
     {
-        curEl = charElements[0]; //sets curEl to the first element in the list on start
-        ElementSelect(); //calls select element
+        // Load player data
+        PlayerData playerData = SaveSystem.LoadPlayerData(GameManager.instance.GetCurrentGame());
+
+        if (playerData != null)
+        {
+            // Apply the saved hair style and color
+            pIndex = playerData.hairStyleIndex;
+            PHairColor = playerData.hairColorIndex;
+            ChangeHairColor();
+            SetStyle();  // Render the saved hair style
+        }
+        else
+        {
+            // Default behavior if no data is saved
+            curEl = charElements[0];
+            ElementSelect();
+        }
 
     }
  
@@ -125,6 +140,22 @@ public class CharCreate : MonoBehaviour
     public void ContinueButton()
     {
 
+        // Create a PlayerData object and store the current hair data
+        PlayerData playerData = new PlayerData
+        {
+            hairStyleIndex = pIndex,  // Save the current style index
+            hairColorIndex = PHairColor // Save the current color index
+        };
+
+        // Save data to file
+        SaveSystem.SavePlayerData(playerData, GameManager.instance.GetCurrentGame());
+
+        // Flag the game as played
+        GameManager.instance.SetGamePlayed(GameManager.instance.GetCurrentGame());
+
+        Debug.Log($"{GameManager.instance.GetCurrentGame()} is {GameManager.instance.HasPlayedGame(GameManager.instance.GetCurrentGame())}");
+
+        // Now load the next scene
         SceneManager.LoadScene("Home");
 
     }
