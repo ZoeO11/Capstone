@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
 
 
 // This script handles global game data, such as which game
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     public void SetGamePlayed(string game)
     {
-        playedGames[game] = true;
+
+        instance.playedGames[game] = true;  // Add new game
     }
+
 }
