@@ -41,10 +41,4 @@ public class GameManager : MonoBehaviour
         return playedGames.ContainsKey(game) && playedGames[game];
     }
 
-    public void SetGamePlayed(string game)
-    {
-
-        instance.playedGames[game] = true;  // Add new game
-    }
-
 }

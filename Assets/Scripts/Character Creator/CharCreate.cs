@@ -150,9 +150,6 @@ public class CharCreate : MonoBehaviour
         // Save data to file
         SaveSystem.SavePlayerData(playerData, GameManager.instance.GetCurrentGame());
 
-        // Flag the game as played
-        GameManager.instance.SetGamePlayed(GameManager.instance.GetCurrentGame());
-
         Debug.Log($"{GameManager.instance.GetCurrentGame()} is {GameManager.instance.HasPlayedGame(GameManager.instance.GetCurrentGame())}");
 
         // Now load the next scene

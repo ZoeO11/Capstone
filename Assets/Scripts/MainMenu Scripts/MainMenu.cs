@@ -19,10 +19,6 @@ public class MainMenu : MonoBehaviour
         else
         {
             Debug.Log("Game 1 does not exist. Launching...");
-
-            // error with the following line. the dictionary is NOT getting updated properly
-            GameManager.instance.SetGamePlayed("game1");
-
             GameManager.instance.SetCurrentGame("game1");
             SceneManager.LoadScene("CharCreation");
         }
@@ -42,10 +38,6 @@ public class MainMenu : MonoBehaviour
         else
         {
             Debug.Log("Game 2 does not exist. Launching...");
-
-            // error with the following line. the dictionary is NOT getting updated properly
-            GameManager.instance.SetGamePlayed("game2");
-
             GameManager.instance.SetCurrentGame("game2");
             SceneManager.LoadScene("CharCreation");
         }
