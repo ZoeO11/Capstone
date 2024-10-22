@@ -33,10 +33,12 @@ public class CharCreate : MonoBehaviour
     public int LastHairColor = 0;
     public int PHairColor = 0;
 
+    PlayerData playerData;
+
     void Start()
     {
         // Load player data
-        PlayerData playerData = SaveSystem.LoadPlayerData(GameManager.instance.GetCurrentGame());
+        playerData = SaveSystem.LoadPlayerData(GameManager.instance.GetCurrentGame());
 
         if (playerData != null)
         {
@@ -140,14 +142,17 @@ public class CharCreate : MonoBehaviour
     public void ContinueButton()
     {
 
-        // Create a PlayerData object and store the current hair data
-        PlayerData playerData = new PlayerData
+        if (playerData == null)
         {
-            hairStyleIndex = pIndex,  // Save the current style index
-            hairColorIndex = PHairColor // Save the current color index
-        };
+            // If no player data exists, create a new instance
+            playerData = new PlayerData();
+        }
 
-        // Save data to file
+        // Update only the hair style and color while preserving other data
+        playerData.hairStyleIndex = pIndex;   // Save the current style index
+        playerData.hairColorIndex = PHairColor; // Save the current color index
+
+        // Save the updated data to file
         SaveSystem.SavePlayerData(playerData, GameManager.instance.GetCurrentGame());
 
         Debug.Log($"{GameManager.instance.GetCurrentGame()} is {GameManager.instance.HasPlayedGame(GameManager.instance.GetCurrentGame())}");
