@@ -34,6 +34,12 @@ public class GameItem
         interactionCount += 1;
         
     }
+
+    public int GetInteractionCount()
+    {
+        return interactionCount;
+    }
+
     public KnowledgeLevel GetKnowledgeLevel()
     {
         return knowledgeLevel;
