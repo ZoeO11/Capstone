@@ -31,7 +31,7 @@ public class MainMenu : MonoBehaviour
         {
 
             Debug.Log("Game 2 already exists :)");
-            GameManager.instance.SetCurrentGame("game1");
+            GameManager.instance.SetCurrentGame("game2");
             SceneManager.LoadScene("Home");
 
         }

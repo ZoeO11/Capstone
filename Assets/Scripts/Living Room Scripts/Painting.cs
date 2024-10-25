@@ -11,6 +11,7 @@ public class Painting : MonoBehaviour
     private PlayerData playerData;
     private GameItem painting;
     private string saveKey = "PaintingImageIndex";  // Key for saving the current image index
+    bool wordExists = false;
 
     void Start()
     {
@@ -33,27 +34,34 @@ public class Painting : MonoBehaviour
 
         // check to see if painting already exists in the JSON vocab list.
         //   if it does, then assign its value to the painting object's knowledge level attribute
-        if (playerData.vocabulary_dict.ContainsKey("painting"))
+
+
+        // ACCESS THE PLAYER'S VOCAB DICTIONARY; IF THE VOCAB LIST DOESN'T CONTAIN 'PAINTING', THEN ADD IT AS LEVEL1
+        for (int i = 0; i < playerData.vocabulary_list.Count; i++)
         {
-            Debug.Log("'painting' already exists in vocab list!");
-            painting.knowledgeLevel = playerData.vocabulary_dict["painting"];
+            if (playerData.vocabulary_list[i].word == "painting")
+            {
+                Debug.Log("'painting' already exists in the vocabulary list!");
+                painting.knowledgeLevel = playerData.vocabulary_list[i].knowledgeLevel;
+                painting.interactionCount = playerData.vocabulary_list[i].interactionCount;
+                wordExists = true;
+                break;
+            }
         }
+
     }
 
     // Method to cycle through the images when the picture frame is clicked
     void OnMouseDown()
     {
-
-        // THE ERROR OF NULL PAINTING OBJECT might be coming from the way you're
-        // assigning the scripts to the gameobjects
-
         // increase the number of interactions to be +1
         // once it reaches a certain amount, prompt a test
         // if they pass, increase the knowledge level, etc.
+        painting.IncreaseInteraction();
 
-        if (painting.interactionCount == 0)
+        // set KL to level one the first time you click it
+        if (painting.interactionCount == 1)
         {
-            Debug.Log("painting interaction = 0; updating to LEVEL_1");
             painting.SetKnowledgeLevel(KnowledgeLevel.LEVEL_1);
         }
 
@@ -71,11 +79,9 @@ public class Painting : MonoBehaviour
         {
             // play the sound for painting eventually
 
-            painting.IncreaseInteraction();
             Debug.Log($"'painting' count = {painting.interactionCount}");
 
         }
-
 
         // Increment the image index and cycle back to 0 if at the last image
         currentImageIndex = (currentImageIndex + 1) % images.Length;
@@ -91,31 +97,37 @@ public class Painting : MonoBehaviour
     public void LeaveButton()
     {
 
-        // Ensure playerData is not null
-        if (playerData == null)
-        {
-            Debug.LogError("Player data is null! Cannot save knowledge level.");
-            return; // Exit the method early
-        }
-
-        // Ensure painting is initialized
-        if (painting == null)
-        {
-            Debug.LogError("Painting object is null! Cannot get knowledge level.");
-            return; // Exit the method early
-        }
-
-
         // update the knowledge to be that of the Object class instance for painting
         KnowledgeLevel knowledge_level = painting.GetKnowledgeLevel();
+        int final_interaction_count = painting.GetInteractionCount();
         Debug.Log($"Upon leaving, KL is {knowledge_level}");
 
-        VocabularyEntry painting_vocab = new VocabularyEntry("painting", knowledge_level);
-        // playerData.vocabulary_dict["painting"] = knowledge_level;
-        playerData.vocabulary_list.Add(painting_vocab);
 
+        // if wordExists is false, then do this:
+        if (!wordExists)
+        {
+            VocabularyEntry painting_vocab = new VocabularyEntry("painting", knowledge_level);
+            painting_vocab.interactionCount = final_interaction_count;
+            playerData.vocabulary_list.Add(painting_vocab);
+            Debug.Log($"playerData vocab list is now: {playerData.vocabulary_list}");
+        }
+        // word already exists in vocab list; just update to newest KL
+        else
+        {
+            for (int j = 0; j < playerData.vocabulary_list.Count; j++)
+            {
+                if (playerData.vocabulary_list[j].word == "painting")
+                {
+                    // Word found, update its knowledge level
+                    playerData.vocabulary_list[j].knowledgeLevel = knowledge_level;
+                    playerData.vocabulary_list[j].interactionCount = final_interaction_count;
+                    Debug.Log($"Updated 'painting' knowledge level to {knowledge_level}");
+                    Debug.Log($"Updated 'painting' interaction count to {final_interaction_count}");
+                    break;
+                }
+            }
 
-        //Debug.Log($"playerData.vocabulary is: {playerData.vocabulary_dict}");
+        }
 
         SaveSystem.SavePlayerData(playerData, GameManager.instance.GetCurrentGame());
 
