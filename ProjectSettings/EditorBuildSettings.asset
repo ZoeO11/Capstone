@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Map.unity
     guid: bb43c6f6cb4414620a7becd4ae0a7e17
   - enabled: 1
-    path: Assets/Scenes/Locations/School.unity
+    path: Assets/Scenes/Locations/School/Art Classroom/Canvas Interaction.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
     path: Assets/Scenes/Locations/Restaurant.unity

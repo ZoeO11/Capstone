@@ -57,6 +57,12 @@ public class Painting : MonoBehaviour
         // increase the number of interactions to be +1
         // once it reaches a certain amount, prompt a test
         // if they pass, increase the knowledge level, etc.
+
+
+
+        // CHECK IF IS CLICKABLE, THEN
+
+
         painting.IncreaseInteraction();
 
         // set KL to level one the first time you click it
