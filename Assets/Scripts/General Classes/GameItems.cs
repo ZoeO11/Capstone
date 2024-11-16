@@ -18,6 +18,7 @@ public class GameItem
     public string objectName;   // Name of the object
     public KnowledgeLevel knowledgeLevel;   // User's knowledge level of the object 
     public int interactionCount;  // Track how many times the object has been interacted with
+    public Sprite itemSprite;
 
     // Constructor to initialize an object
     public GameItem(string name)
@@ -49,4 +50,15 @@ public class GameItem
     {
         knowledgeLevel = level;
     }
+
+    public Sprite GetSprite()
+    {
+        return itemSprite;
+    }
+
+    public void SetSprite(Sprite sprite)
+    {
+        itemSprite = sprite;
+    }
+
 }

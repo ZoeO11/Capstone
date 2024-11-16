@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Preferences.unity
     guid: 305687b3bcc2b4b72a3259c0acdaf3c1
+  - enabled: 1
+    path: Assets/Scenes/Knowledge Checks/Knowledge Check 1.unity
+    guid: e35ecc3e45e694ef5876761e31b2ce2e
   m_configObjects: {}
