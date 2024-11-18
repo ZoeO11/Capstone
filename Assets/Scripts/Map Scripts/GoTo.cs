@@ -9,7 +9,6 @@ public class LoadOnTouchOrMouse : MonoBehaviour
     private string Scene = "slay";
     void OnMouseDown()
     {
-        Scene = gameObject.transform.name;
         SceneManager.LoadScene(Scene);
     }
 
