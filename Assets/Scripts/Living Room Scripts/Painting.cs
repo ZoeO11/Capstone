@@ -13,7 +13,6 @@ public class Painting : MonoBehaviour
     private ClickableItems painting;
     private int wordExists;
     private int interaction_count;
-    FindGameItem first_kc;
     int result;
 
     void Start()
@@ -69,11 +68,12 @@ public class Painting : MonoBehaviour
             Debug.Log("'painting' now has KL 1!");
         }
 
+        /*
         if (painting.interactionCount == 5)
         {
             // prompt knowledge assessment!
 
-            /*first_kc = new FindGameItem();
+            first_kc = new FindGameItem();
 
             result = first_kc.LoadFindItemKC(painting, playerData);
 
@@ -86,10 +86,11 @@ public class Painting : MonoBehaviour
             else
             {
                 painting.interactionCount = 0;
-            } */
+            } 
 
 
         }
+        */
 
         if (interaction_count > 13)
         {

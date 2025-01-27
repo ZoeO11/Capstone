@@ -27,7 +27,7 @@ public class Phone : MonoBehaviour
     {
         ActivatePhone();
         Debug.Log("PHONE CLICKED");
-        phone.ChangeKnowledgeLevel();
+        phone.ChangeKnowledgeLevel(playerData, "test");
     }
     void ActivatePhone()
     {

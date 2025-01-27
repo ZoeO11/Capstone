@@ -14,6 +14,16 @@ public class PlayerData
     // vocab list for save file
     public List<VocabularyEntry> vocabulary_list = new List<VocabularyEntry>();
 
+    // char1 list
+    public List<string> char1_list = new List<string>();
+    // char2 list
+    public List<string> char2_list = new List<string>();
+    // char 3 list
+    public List<string> char3_list = new List<string>();
+    // char4 list
+    public List<string> char4_list = new List<string>();
+
+
 }
 
 [System.Serializable] // this is necessary so that it can be serialized

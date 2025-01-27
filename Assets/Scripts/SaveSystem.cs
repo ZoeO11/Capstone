@@ -9,6 +9,8 @@ using System.Collections.Generic;
 public class SaveSystem
 {
     public static List<ClickableItems> clickableObjectsList = new List<ClickableItems>();
+    public static List<List<string>> characterLists = new List<List<string>>();
+
 
     public static void SavePlayerData(PlayerData playerData, string gameName)
     {
@@ -68,5 +70,15 @@ public class SaveSystem
             }
         }
     }
+    public static void SaveCharLists(PlayerData playerData)
+    {
+        foreach (List<string> char_list in characterLists)
+        {
+            
+            playerData.char_list = 
+        }
+    }
+
+
 
 }

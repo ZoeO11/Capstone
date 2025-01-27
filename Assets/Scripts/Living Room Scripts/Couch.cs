@@ -83,8 +83,11 @@ public class Couch : MonoBehaviour
 
         // call function that iterates over interacted objects, and saves them out to JSON
         SaveSystem.SaveClickedObjects(playerData);
+
+        //SaveSystem.SaveCharLists(playerData);
+
         SaveSystem.SavePlayerData(playerData, GameManager.instance.GetCurrentGame());
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Map");
 
     }
 }

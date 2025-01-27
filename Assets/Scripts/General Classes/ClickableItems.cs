@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ClickableItems : GameItem
 {
@@ -7,6 +8,7 @@ public class ClickableItems : GameItem
     public int indexInVocab;
     private int interaction_count;
     private int wordExists;
+    public string character_for_KC;
 
     // Constructor
     public ClickableItems(string name) : base(name)
@@ -51,7 +53,7 @@ public class ClickableItems : GameItem
 
         }
     }
-    public void ChangeKnowledgeLevel()
+    public void ChangeKnowledgeLevel(PlayerData playerData, string character)
     {
         this.IncreaseInteraction();
         interaction_count = this.GetInteractionCount();
@@ -60,27 +62,47 @@ public class ClickableItems : GameItem
         if (interaction_count == 1)
         {
             this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_1);
-            Debug.Log("'plant' now has KL 1!");
+            Debug.Log("'object' now has KL 1!");
         }
 
-        if (this.interactionCount > 4 && this.interactionCount <= 13)
+        if (this.interactionCount == 5)
         {
             // prompt knowledge assessment!
+
+            // char_list = gamesave1[character]
+            // add to char_list: "go find the plant"
+            // keep there until plant int_count goes up by 1
+            // once it does, increase KL by 2
+
+            // every char has their own list in the gameSave file
+            // put in living room char list "find the plant"
+            playerData.char1_list.Add($"Find the {this.objectName}.");
+            Debug.Log(playerData.char1_list[0]);
+            SaveSystem.characterLists.Add(playerData.char1_list);
+            // SaveSystem.SavePlayerData(playerData, GameManager.instance.GetCurrentGame());
+
+
+
+
             // if pass, increase knowledge level
 
             // if not, set the interaction count to be minus 2 or something
-            this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_2);
-            Debug.Log("'plant' now has KL 2!");
+
+            // this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_2);
+            // Debug.Log("'object' now has KL 2!");
+
+
+
         }
 
         if (interaction_count > 13)
         {
             this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_3);
-            Debug.Log("'plant' now has KL 3!");
+            Debug.Log("'object' now has KL 3!");
         }
 
         // play the sound for painting eventually
-        Debug.Log($"'plant' count = {this.interactionCount}");
+        Debug.Log($"'object' count = {this.interactionCount}");
     }
 }
 
