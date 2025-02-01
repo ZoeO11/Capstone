@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ClickableItems : GameItem
 {
@@ -6,17 +7,30 @@ public class ClickableItems : GameItem
     public bool wordExistsInVocab;
     public int indexInVocab;
     private int interaction_count;
-    private int wordExists;
+    public string character_for_KC;
+    private PlayerData playerData;  // Add a reference to playerData
 
     // Constructor
     public ClickableItems(string name) : base(name)
     {
         isClickable = true;
         objectName = name;
+        wordExistsInVocab = false;
+        indexInVocab = -1;
+
+        // Initialize playerData from GameManager
+        playerData = GameManager.playerData;  // Use the static playerData from GameManager
     }
 
-    public int CheckIfWordExistsInVocab(PlayerData playerData)
+    // Check if the word exists in the player's vocabulary list
+    public int CheckIfWordExistsInVocab()
     {
+        if (playerData == null)
+        {
+            Debug.LogError("Player data is not initialized.");
+            return -1;  // Return -1 if playerData is not set
+        }
+
         for (int i = 0; i < playerData.vocabulary_list.Count; i++)
         {
             if (playerData.vocabulary_list[i].word == objectName)
@@ -24,64 +38,85 @@ public class ClickableItems : GameItem
                 return i; // Return the index of the word if found
             }
         }
-
-        // If the word isn't found, return -1
-        return -1;
+        return -1; // Return -1 if the word isn't found
     }
-    public void GetPrevValues(PlayerData playerData)
+
+    // Set up previous values for knowledge level and interaction count based on vocab
+    public void GetPrevValues()
     {
-        wordExists = this.CheckIfWordExistsInVocab(playerData);
+        int wordExists = CheckIfWordExistsInVocab();
 
         if (wordExists != -1)
         {
-            // wordExists is now the index of where the vocab word exists in the list
-
-            // set the intermediate object's KL and IC to be that of the wordExists th entry of the list
             this.knowledgeLevel = playerData.vocabulary_list[wordExists].knowledgeLevel;
             this.interactionCount = playerData.vocabulary_list[wordExists].interactionCount;
             this.indexInVocab = wordExists;
             this.wordExistsInVocab = true;
-
         }
         else
         {
             this.wordExistsInVocab = false;
             this.indexInVocab = -1;
-            wordExists = playerData.vocabulary_list.Count; // Index of most recently added word
-
         }
     }
-    public void ChangeKnowledgeLevel()
+
+    // Update knowledge level and handle special tasks when a certain interaction count is reached
+    public void ChangeKnowledgeLevel(string character)
     {
         this.IncreaseInteraction();
         interaction_count = this.GetInteractionCount();
+        Debug.Log($"{this.objectName} int count: {interaction_count}");
+        Debug.Log($"{this.objectName} KL: {this.GetKnowledgeLevel()}");
 
-        // set KL to level one the first time you click it
         if (interaction_count == 1)
         {
             this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_1);
-            Debug.Log("'plant' now has KL 1!");
         }
 
-        if (this.interactionCount > 4 && this.interactionCount <= 13)
+        if (interaction_count == 5)
         {
-            // prompt knowledge assessment!
-            // if pass, increase knowledge level
+            string task = $"Find the {objectName}.";
 
-            // if not, set the interaction count to be minus 2 or something
-            this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_2);
-            Debug.Log("'plant' now has KL 2!");
+            // adding to general 'task' list for now
+            playerData.tasks.Add(task);
         }
 
-        if (interaction_count > 13)
+        if (interaction_count == 13)
+        {
+            this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_2);
+        }
+
+        if (interaction_count > 20)
         {
             this.SetKnowledgeLevel(KnowledgeLevel.LEVEL_3);
-            Debug.Log("'plant' now has KL 3!");
+        }
+    }
+
+    public void UpdateVocabularyList()
+    {
+        if (playerData == null)
+        {
+            Debug.LogError("Player data is not initialized.");
+            return;  // Prevent the method from running if playerData is not set
         }
 
-        // play the sound for painting eventually
-        Debug.Log($"'plant' count = {this.interactionCount}");
+        // Look for the word in the player's vocabulary list
+        VocabularyEntry entry = playerData.vocabulary_list.Find(v => v.word == this.objectName);
+
+        if (entry == null)
+        {
+            // If not found, add a new entry
+            VocabularyEntry newEntry = new VocabularyEntry(this.objectName, this.GetInteractionCount(), this.GetKnowledgeLevel());
+            playerData.vocabulary_list.Add(newEntry);
+            entry = newEntry;
+        }
+        else
+        {
+            entry.interactionCount = this.GetInteractionCount();
+            entry.knowledgeLevel = this.GetKnowledgeLevel();
+        }
+
     }
+
+        
 }
-
-
