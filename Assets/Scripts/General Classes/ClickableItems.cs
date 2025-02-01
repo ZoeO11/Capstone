@@ -78,7 +78,12 @@ public class ClickableItems : GameItem
             string task = $"Find the {objectName}.";
 
             // adding to general 'task' list for now
-            playerData.tasks.Add(task);
+            if (this.character_for_KC == "char1")
+            {
+                playerData.char1_list.Add(task);
+            }
+            
+           
         }
 
         if (interaction_count == 13)
