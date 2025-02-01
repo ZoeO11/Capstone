@@ -5,24 +5,36 @@ using UnityEngine;
 [System.Serializable]
 public class CharElement
 {
-    public int numShapes; //total number of shapes
-    public int numSwatches; //number fo swatches (ex: number of hair colors)
-    public int curIndex; //currently not used. Will be used to write to json file eventually
-    public string element; //name of the element
-    public string PNG; //where the sprite sheet is stored
-    public SpriteRenderer render; //the sprite renderer for the element 
+    public int numShapes; // Total number of shapes
+    public int numSwatches; // Number of swatches (e.g., hair colors)
+    public int curIndex; // Current index, used for saving to JSON
+    public string element; // Name of the element (e.g., "Hair", "Eyes")
+    public string PNG; // Path to the sprite sheet
+    public SpriteRenderer render; // Sprite renderer for the element
+    public bool isModified; // Tracks if the element has been modified
 
-    public CharElement(int numShapes, int numSwatches,int curIndex, string element, string PNG, SpriteRenderer render) //setter function
+    // Default constructor
+    public CharElement()
     {
-        this.numShapes = numShapes;
-        this.numSwatches = numSwatches;
-        this.curIndex = curIndex;
-        this.element = element;
-        this.PNG = PNG;
+        numShapes = 0;
+        numSwatches = 0;
+        curIndex = 0;
+        element = "Default";
+        PNG = string.Empty;
+        render = null;
+        isModified = false;
+    }
+
+    // Custom constructor
+    public CharElement(int numShapes, int numSwatches, int curIndex, string element, string PNG, SpriteRenderer render)
+    {
+        this.numShapes = Mathf.Max(0, numShapes); // Ensure non-negative values
+        this.numSwatches = Mathf.Max(0, numSwatches);
+        this.curIndex = Mathf.Max(0, curIndex);
+        this.element = element ?? "Unnamed Element"; // Default name if null
+        this.PNG = PNG ?? string.Empty; // Default path if null
         this.render = render;
+        this.isModified = false;
     }
 
 }
-
-
-

@@ -3,61 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//notes: In this case an "element" is a part of our character (hair, outfit, eyebrow) Shape refers to the shape of the element.
-//The swatch, color, or style, will be called by element specific functions (ex:  ChangeHairColor())
-//each element is an instance of the CharElement class. These instances are created in the unity editor rather than in code
-
+// This script handles character creation, including styling and saving the data.
 public class CharCreate : MonoBehaviour
 {
-    //create list of all charachter elements and create current element
     public List<CharElement> charElements = new List<CharElement>();
-    public CharElement curEl; 
+    public CharElement curEl;
 
-   //variables for all elements
-    public Sprite[] currentSprites; //sprite sheet elements
-    // elements in shape selector
-    public SpriteRenderer nextRender; 
+    // Variables for all elements
+    public Sprite[] currentSprites; // Sprite sheet elements
+    public SpriteRenderer nextRender;
     public SpriteRenderer lastRender;
     public SpriteRenderer pRender;
-    //variables to track shape
+
+    // Variables to track shape
     public int nextShapeTrack = 0;
     public int lastShapeTrack = 0;
     public int pShapeTrack = 0;
-    //variables to track index
+
+    // Variables to track index
     public int lastIndex = 0;
     public int pIndex = 0;
     public int nextIndex = 1;
-    //hair specific variables
+
+    // Hair-specific variables
     public Sprite[] bangStyles;
     public SpriteRenderer bangRenderer;
-    public int LastHairColor = 0;
-    public int PHairColor = 0;
+    public int lastHairColor = 0;
+    public int pHairColor = 0;
 
-    PlayerData playerData;
+    private PlayerData playerData;
 
     void Start()
     {
-        // Load player data
+        // Attempt to load player data
         playerData = SaveSystem.LoadPlayerData(GameManager.instance.GetCurrentGame());
 
         if (playerData != null)
         {
             // Apply the saved hair style and color
             pIndex = playerData.hairStyleIndex;
-            PHairColor = playerData.hairColorIndex;
+            pHairColor = playerData.hairColorIndex;
+
+            // Load hair customization
             ChangeHairColor();
-            SetStyle();  // Render the saved hair style
+            SetStyle(); // Render the saved hair style
         }
         else
         {
-            // Default behavior if no data is saved
+            // Default behavior if no data exists
+            Debug.Log("No existing player data found. Starting with default settings.");
             curEl = charElements[0];
             ElementSelect();
         }
-
     }
- 
-    public void ElementSelect() //will eventually be called by element selection buttons(will need to take input)
+
+    public void ElementSelect() // Called when selecting an element (e.g., hair, outfit)
     {
         currentSprites = Resources.LoadAll<Sprite>(curEl.PNG);
         ReRender();
@@ -67,102 +67,90 @@ public class CharCreate : MonoBehaviour
         nextIndex = 1;
         nextShapeTrack = 1;
         lastShapeTrack = curEl.numShapes - 1;
-
     }
 
-    public void ReRender() //renders element previews (called when shape or style changes)
+    public void ReRender() // Updates previews for shape/style
     {
         nextRender.sprite = currentSprites[nextIndex];
-
         lastRender.sprite = currentSprites[lastIndex];
-
         pRender.sprite = currentSprites[pIndex];
     }
 
-    
-    public void ElementMinus() //called when right arrow is pressed
+    public void ElementMinus() // Called when right arrow is pressed
     {
-        //shift index and shape
         lastIndex = pIndex;
         lastShapeTrack = pShapeTrack;
         pIndex = nextIndex;
         pShapeTrack = nextShapeTrack;
         nextShapeTrack++;
-        //check if next element is out of range
-        if (nextShapeTrack == (curEl.numShapes))
+
+        if (nextShapeTrack == curEl.numShapes)
         {
-            nextShapeTrack--;
-            nextIndex -= nextShapeTrack;
             nextShapeTrack = 0;
+            nextIndex -= curEl.numShapes - 1;
         }
         else
         {
             nextIndex++;
         }
-        ReRender(); //render new shapes
+        ReRender();
     }
-    public void ElementPlus() //called when left arrow is pressed
+
+    public void ElementPlus() // Called when left arrow is pressed
     {
-        //shift index and shape
         nextIndex = pIndex;
         nextShapeTrack = pShapeTrack;
         pIndex = lastIndex;
         pShapeTrack = lastShapeTrack;
-        //check if next element is out of range
+
         if (lastShapeTrack == 0)
         {
-            lastShapeTrack = (curEl.numShapes - 1);
-            lastIndex += lastShapeTrack;
+            lastShapeTrack = curEl.numShapes - 1;
+            lastIndex += curEl.numShapes - 1;
         }
         else
         {
             lastIndex--;
             lastShapeTrack--;
         }
-        ReRender(); //render new shapes
+        ReRender();
     }
-    public void SetStyle() //called when select button is pressed and applies potential shape + style
+
+    public void SetStyle() // Called when selecting a specific style
     {
         curEl.render.sprite = currentSprites[pIndex];
-        if (curEl.element == "Hair") // hair and bangs must be rendered seperately, this renders bangs based on hair
+
+        if (curEl.element == "Hair") // Render bangs based on hair
         {
             bangStyles = Resources.LoadAll<Sprite>("CharacterCreator/BangV2");
             bangRenderer.sprite = bangStyles[pIndex];
         }
     }
-   
-    public void ChangeHairColor() // hair specific function, linked to color buttons.
+
+    public void ChangeHairColor() // Handles hair color changes
     {
-        lastIndex = PHairColor * curEl.numShapes + lastShapeTrack;
-        nextIndex = PHairColor * curEl.numShapes + nextShapeTrack;
-        pIndex = PHairColor * curEl.numShapes + pShapeTrack;
+        lastIndex = pHairColor * curEl.numShapes + lastShapeTrack;
+        nextIndex = pHairColor * curEl.numShapes + nextShapeTrack;
+        pIndex = pHairColor * curEl.numShapes + pShapeTrack;
         ReRender();
     }
 
-    public void ContinueButton()
+    public void ContinueButton() // Called when continuing to the next scene
     {
-
         if (playerData == null)
         {
-            // If no player data exists, create a new instance
-            playerData = new PlayerData();
+            playerData = new PlayerData(); // Initialize if null
         }
 
-        // Update only the hair style and color while preserving other data
-        playerData.hairStyleIndex = pIndex;   // Save the current style index
-        playerData.hairColorIndex = PHairColor; // Save the current color index
+        // Update hair style and color
+        playerData.hairStyleIndex = pIndex;
+        playerData.hairColorIndex = pHairColor;
 
-        // Save the updated data to file
+        // Save player data
         SaveSystem.SavePlayerData(playerData, GameManager.instance.GetCurrentGame());
+        Debug.Log($"Game {GameManager.instance.GetCurrentGame()} saved successfully.");
 
-        Debug.Log($"{GameManager.instance.GetCurrentGame()} is {GameManager.instance.HasPlayedGame(GameManager.instance.GetCurrentGame())}");
-
-        // Now load the next scene
+        // Load the next scene
         SceneManager.LoadScene("Home");
-
     }
-
-
 }
-
-

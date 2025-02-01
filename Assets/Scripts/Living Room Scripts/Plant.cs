@@ -1,31 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
-    private PlayerData playerData;
     private ClickableItems plant;
-    private int wordExists;
-    private int interaction_count;
     Animator anim;
-    public string character_for_KC;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        playerData = SaveSystem.LoadPlayerData(GameManager.instance.GetCurrentGame());
-        plant = new ClickableItems("plant");
-        plant.character_for_KC = "char1";
-        plant.GetPrevValues(playerData);
-        SaveSystem.clickableObjectsList.Add(plant);
+
+         // Initialize plant as a clickable item with the loaded player data
+         plant = new ClickableItems("plant");
+         plant.character_for_KC = "char1"; // Assuming this is the character you're tracking
+
+         // Retrieve previous data for the plant
+         plant.GetPrevValues();
+        
     }
+
     void OnMouseDown()
     {
         anim.SetTrigger("onclickanimate");
         Debug.Log("PLANT CLICKED");
-        plant.ChangeKnowledgeLevel(playerData, plant.character_for_KC);
+
+        // Update the knowledge level and handle the plant's task logic
+        plant.ChangeKnowledgeLevel(plant.character_for_KC);
+
+        // Make sure to update the vocabulary list after interaction
+        plant.UpdateVocabularyList();
     }
 }
-    

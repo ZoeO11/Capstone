@@ -12,6 +12,6 @@ public class TextBubbleManager : MonoBehaviour
     public void Start()
     {
         PlayerData playerData = SaveSystem.LoadPlayerData(GameManager.instance.GetCurrentGame());
-        _title.text = playerData.char1_list[0];
+        _title.text = playerData.tasks[0];
     }
 }
