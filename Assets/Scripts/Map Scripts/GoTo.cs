@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadOnTouchOrMouse : MonoBehaviour
 {
     [SerializeField]
-    private string Scene = "slay";
+    private string Scene;
     void OnMouseDown()
     {
         SceneManager.LoadScene(Scene);
