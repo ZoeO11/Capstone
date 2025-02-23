@@ -47,6 +47,7 @@ public class ItemClickHandler : MonoBehaviour
 
         if (itemAdded)
         {
+            Destroy(gameObject);
             inventoryDisplay.UpdateInventory(); // Update UI after adding item
         }
         else
