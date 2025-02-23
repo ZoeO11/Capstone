@@ -7,6 +7,8 @@ public class InventoryDisplay : MonoBehaviour
     public Inventory inventory;
     public ItemDisplay[] slots;
     public int i = 0;
+    public Vector3 dropBasePosition = new Vector3(0.5f, 0.5f, -1);
+    public Vector3 dropPositionRange = new Vector3(1f, 1f, 0f);
 
     private void Start()
     {
@@ -62,10 +64,25 @@ public class InventoryDisplay : MonoBehaviour
             if (itemToDrop != null && itemToDrop.objectData != null)
             {
                 Debug.Log("trying to instantiate");
+
+                Vector3 randomOffset = new Vector3(
+                    Random.Range(-dropPositionRange.x, dropPositionRange.x),
+                    Random.Range(-dropPositionRange.y, dropPositionRange.y),
+                    Random.Range(-dropPositionRange.z, dropPositionRange.z)
+                );
+
+                // Calculate the final drop position.
+                Vector3 dropPosition = dropBasePosition + randomOffset;
+
                 // Example: Instantiate the dropped item in the game world at some position
-                Instantiate(itemToDrop.objectData.prefab, new Vector3(0.5f, 0.5f, -1), Quaternion.identity); // Change the position as needed
+                GameObject droppedItem = Instantiate(itemToDrop.objectData.prefab, dropPosition, Quaternion.identity); // Change the position as needed
+                ItemClickHandler clickHandler = droppedItem.GetComponent<ItemClickHandler>();
                 //InventoryDisplay inventoryDisplay = ItemClickHandler.inventoryDisplay;
                 //itemToDrop.gameObject.SetActive(true);
+                if (clickHandler != null)
+                {
+                    clickHandler.inventoryDisplay = this;
+                }
             }
 
             // Remove the item from the inventory
