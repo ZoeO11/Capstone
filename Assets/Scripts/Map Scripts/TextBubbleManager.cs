@@ -9,13 +9,15 @@ public class TextBubbleManager : MonoBehaviour
     private TMP_Text _title;
     public GameObject speechBubble;
     public GameObject ExPoint;
+    public NPC myNPC;
 
     public void Start()
     {
         _title.gameObject.SetActive(false);
         speechBubble.SetActive(false);
         ExPoint.SetActive(false);
-        if (GameManager.playerData.char1_list.Count > 0)
+
+        if (myNPC.kc_list.Count > 0)
         {
             ExPoint.SetActive(true);
             
@@ -27,6 +29,8 @@ public class TextBubbleManager : MonoBehaviour
         ExPoint.SetActive(false);
         _title.gameObject.SetActive(true);
         speechBubble.SetActive(true);
-        _title.text = GameManager.playerData.char1_list[0];
+        string task = $"Find the {myNPC.kc_list[0].name}.";
+        _title.text = task;
+        myNPC.kc_list[0].inKnowledgeCheck = true;
     }
 }

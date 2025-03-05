@@ -580,6 +580,7 @@ MonoBehaviour:
   _title: {fileID: 1090123374}
   speechBubble: {fileID: 1169167143}
   ExPoint: {fileID: 730771771}
+  myNPC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
 --- !u!1 &1019184523
 GameObject:
   m_ObjectHideFlags: 0
