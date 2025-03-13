@@ -30,18 +30,19 @@ public class ClickableObjectsHandler : MonoBehaviour
 
         else if (myObject.interaction_count == 5)
         {
-            
-
-            myObject.character_for_KC.kc_list.Add(myObject);
-
+            if (!myObject.character_for_KC.kc_list.Contains(myObject))
+            {
+                myObject.character_for_KC.kc_list.Add(myObject);
+            }
 
         }
         else if (myObject.interaction_count == 13)
         {
 
-
-            myObject.character_for_KC.kc_list.Add(myObject);
-
+            if (!myObject.character_for_KC.kc_list.Contains(myObject))
+            {
+                myObject.character_for_KC.kc_list.Add(myObject);
+            }
 
         }
         else
