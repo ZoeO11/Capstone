@@ -6,9 +6,9 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     public int maxItems = 4;
-    public List<ItemInstance> items = new();
+    public List<MoveableObject> items = new();
 
-    public bool AddItem(ItemInstance itemToAdd)
+    public bool AddItem(MoveableObject itemToAdd)
     {
         // Finds an empty slot if there is one
         for (int i = 0; i < items.Count; i++)

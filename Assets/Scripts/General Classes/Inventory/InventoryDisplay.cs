@@ -12,7 +12,7 @@ public class InventoryDisplay : MonoBehaviour
 
     private void Start()
     {
-        //UpdateInventory();
+        UpdateInventory();
     }
 
     public void UpdateInventory()
@@ -23,7 +23,7 @@ public class InventoryDisplay : MonoBehaviour
             if (i < inventory.items.Count)
             {
                 slots[i].gameObject.SetActive(true);
-                slots[i].UpdateItemDisplay(inventory.items[i].objectData.icon, i);
+                slots[i].UpdateItemDisplay(inventory.items[i].icon, i);
             }
             else
             {
@@ -52,18 +52,14 @@ public class InventoryDisplay : MonoBehaviour
     public void DropItem(int index)
     {
         // Check if the index is valid
-        Debug.Log("called DropItem");
         if (index >= 0 && index < inventory.items.Count)
         {
             // spawning the item in the game world here
-            ItemInstance itemToDrop = inventory.items[index];
-
-            Debug.Log($"{itemToDrop} please");
+            MoveableObject itemToDrop = inventory.items[index];
 
             // If you want to spawn the item in the game world
-            if (itemToDrop != null && itemToDrop.objectData != null)
+            if (itemToDrop != null)
             {
-                Debug.Log("trying to instantiate");
 
                 Vector3 randomOffset = new Vector3(
                     Random.Range(-dropPositionRange.x, dropPositionRange.x),
@@ -75,7 +71,7 @@ public class InventoryDisplay : MonoBehaviour
                 Vector3 dropPosition = dropBasePosition + randomOffset;
 
                 // Example: Instantiate the dropped item in the game world at some position
-                GameObject droppedItem = Instantiate(itemToDrop.objectData.prefab, dropPosition, Quaternion.identity); // Change the position as needed
+                GameObject droppedItem = Instantiate(itemToDrop.prefab, dropPosition, Quaternion.identity); // Change the position as needed
                 ItemClickHandler clickHandler = droppedItem.GetComponent<ItemClickHandler>();
                 //InventoryDisplay inventoryDisplay = ItemClickHandler.inventoryDisplay;
                 //itemToDrop.gameObject.SetActive(true);

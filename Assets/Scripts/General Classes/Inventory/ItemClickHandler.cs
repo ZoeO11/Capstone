@@ -37,13 +37,15 @@ public class ItemClickHandler : MonoBehaviour
     public void OnMouseDown()
     {
         // Create a new ItemInstance (assuming you want to instantiate this in the scene)
-        GameObject itemInstance = new GameObject(moveableObject.objectName);
-        Debug.Log(moveableObject.objectName);//
-        ItemInstance instanceScript = itemInstance.AddComponent<ItemInstance>();
-        instanceScript.objectData = moveableObject; // Set the MoveableObject reference
+        // GameObject itemInstance = new GameObject(moveableObject.objectName);
+        // ItemInstance instanceScript = itemInstance.AddComponent<ItemInstance>();
+        // instanceScript.objectData = moveableObject; // Set the MoveableObject reference
 
         // Try to add the item to the inventory
-        bool itemAdded = inventory.AddItem(instanceScript);
+        //bool itemAdded = inventory.AddItem(instanceScript);
+
+
+        bool itemAdded = inventory.AddItem(moveableObject);
 
         if (itemAdded)
         {

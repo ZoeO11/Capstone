@@ -158,5 +158,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveableObject: {fileID: 11400000, guid: 2b1f01d3b6a5b4e389809bf5d5872af4, type: 2}
-  inventory: {fileID: 11400000, guid: 9b562ee8ad61d4341a57511734815ceb, type: 2}
+  inventory: {fileID: 11400000, guid: 8caa286db25184782adb722cfb59b0c4, type: 2}
   inventoryDisplay: {fileID: 0}
