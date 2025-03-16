@@ -10,6 +10,7 @@ public class MainCam : MonoBehaviour
     public int speed = 5;
     public new Button rightButton;
     public new Button leftButton;
+    public new GameObject inventoryColider;
     // Update is called once per frame
     
     void Update()
@@ -31,7 +32,10 @@ public class MainCam : MonoBehaviour
             {
 
             }
-            else { transform.Translate(dir * Time.deltaTime * speed); }
+            else
+            { transform.Translate(dir * Time.deltaTime * speed);
+              inventoryColider.transform.Translate(dir * Time.deltaTime * speed);
+            }
             
         }
 
