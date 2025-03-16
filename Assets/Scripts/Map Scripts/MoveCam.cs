@@ -8,6 +8,8 @@ public class MainCam : MonoBehaviour
     public bool ifMove;
     public Vector3 dir = new Vector3(0, 0, 0);
     public int speed = 5;
+    public new Button rightButton;
+    public new Button leftButton;
     // Update is called once per frame
     
     void Update()
@@ -21,18 +23,37 @@ public class MainCam : MonoBehaviour
         }
         if (ifMove == true)
         {
-            transform.Translate(dir * Time.deltaTime * speed);
+            if(transform.position.x >= 14.39 && dir == Vector3.right)
+            {
+                
+            }
+            else if(transform.position.x <= 0 && dir == Vector3.left)
+            {
+
+            }
+            else { transform.Translate(dir * Time.deltaTime * speed); }
+            
         }
 
 
     }
     public void MoveCameraRight()
     {
+        if(transform.position.x >= 14.39)
+        {
+            rightButton.gameObject.SetActive(false);
+        }
+        leftButton.gameObject.SetActive(true);
         ifMove = true;
         dir = Vector3.right;
     }
     public void MoveCameraLeft()
     {
+        if (transform.position.x <= 0)
+        {
+            leftButton.gameObject.SetActive(false);
+        }
+        rightButton.gameObject.SetActive(true);
         ifMove = true;
         dir = Vector3.left;
     }
