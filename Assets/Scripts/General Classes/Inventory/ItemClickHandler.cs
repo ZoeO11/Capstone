@@ -6,7 +6,7 @@ public class ItemClickHandler : MonoBehaviour
     public MoveableObject moveableObject; // Reference to the MoveableObject ScriptableObject
     public Inventory inventory; // Reference to the player's inventory
     public InventoryDisplay inventoryDisplay;
-
+    public Collider2D myCollider;
     public bool isBeingDragged = false;
 
     public void OnMouseDown()
@@ -30,11 +30,13 @@ public class ItemClickHandler : MonoBehaviour
     }
     public void CheckIfDroppedOnInventory()
     {
-        // Assuming the Inventory button has a BoxCollider2D or similar attached
-        Collider2D inventoryButtonCollider = GameObject.FindWithTag("InventoryButton").GetComponent<Collider2D>();
+        Debug.Log("checking");
 
-        if (inventoryButtonCollider != null && inventoryButtonCollider.OverlapPoint(transform.position))
+        // Assuming the Inventory button has a BoxCollider2D or similar attached
+        //Collider2D inventoryButtonCollider = GameObject.FindWithTag("InventoryButton").GetComponent<Collider2D>();
+        if (myCollider.OverlapPoint(transform.position))
         {
+            Debug.Log("overlap");
             // If dropped on the inventory button, try to add to the inventory
             bool itemAdded = inventory.AddItem(moveableObject);
 
