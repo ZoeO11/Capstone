@@ -9,6 +9,7 @@ public class InventoryDisplay : MonoBehaviour
     public int i = 0;
     public Vector3 dropBasePosition = new Vector3(0.5f, 0.5f, -1);
     public Vector3 dropPositionRange = new Vector3(1f, 1f, 0f);
+    public Collider2D newCollider;
 
     private void Start()
     {
@@ -78,6 +79,7 @@ public class InventoryDisplay : MonoBehaviour
                 if (clickHandler != null)
                 {
                     clickHandler.inventoryDisplay = this;
+                    clickHandler.myCollider = newCollider;
                 }
             }
 

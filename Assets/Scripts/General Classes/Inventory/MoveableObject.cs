@@ -7,9 +7,9 @@ public class MoveableObject : ScriptableObject
 {
     public string objectName;
     public Sprite icon;
-    public bool wordExistsInVocab;
-    public int indexInVocab;
     public int interaction_count;
-    public string character_for_KC;
+    public NPC character_for_KC;
+    public int knowledgeLevel;
+    public bool inKnowledgeCheck;
     public GameObject prefab;
 }
