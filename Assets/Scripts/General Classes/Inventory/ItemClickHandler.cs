@@ -8,6 +8,7 @@ public class ItemClickHandler : MonoBehaviour
     public InventoryDisplay inventoryDisplay;
     public Collider2D myCollider;
     public bool isBeingDragged = false;
+    public GeneralObject currentObject;
 
     public void OnMouseDown()
     {
@@ -27,6 +28,11 @@ public class ItemClickHandler : MonoBehaviour
     {
         isBeingDragged = false;
         CheckIfDroppedOnInventory();
+        if(moveableObject.inKnowledgeCheck == true)
+        {
+            CheckIfDroppedOnChar();
+            currentObject = moveableObject.character_for_KC.kc_list[0];
+        }
     }
     public void CheckIfDroppedOnInventory()
     {
@@ -51,5 +57,27 @@ public class ItemClickHandler : MonoBehaviour
             }
         }
         // If not dropped on inventory button, no need to reset the position; just leave it where it is
+    }
+    public void CheckIfDroppedOnChar()
+    {
+        Debug.Log("checking");
+
+        // Assuming the Inventory button has a BoxCollider2D or similar attached
+        //Collider2D inventoryButtonCollider = GameObject.FindWithTag("InventoryButton").GetComponent<Collider2D>();
+        if (moveableObject.character_for_KC.myCollider != null)
+        {
+            if(moveableObject.character_for_KC.myCollider.OverlapPoint(transform.position))
+            {
+                moveableObject.knowledgeLevel++;
+                moveableObject.inKnowledgeCheck = false;
+                moveableObject.character_for_KC.kc_list.Remove(currentObject);
+                moveableObject.character_for_KC.myText.text = "Thank you!";
+                Destroy(gameObject);
+
+                Debug.Log("got object");
+                
+            }
+            
+        }
     }
 }

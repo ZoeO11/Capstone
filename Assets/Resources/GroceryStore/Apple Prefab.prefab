@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6214747654024083163}
   - component: {fileID: 4911500872516813724}
   - component: {fileID: 8997580043418252370}
+  - component: {fileID: 1446411520870524454}
   m_Layer: 0
   m_Name: Apple Prefab
   m_TagString: Untagged
@@ -164,6 +165,7 @@ MonoBehaviour:
   inventoryDisplay: {fileID: 0}
   myCollider: {fileID: 0}
   isBeingDragged: 0
+  currentObject: {fileID: 0}
 --- !u!50 &4911500872516813724
 Rigidbody2D:
   serializedVersion: 4
@@ -203,3 +205,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e0954b45dfa4a5e97e2fd4fe5a49fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1446411520870524454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9134152091782562993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d186aafbf4d4ac8898f8fa9dfd739a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _title: {fileID: 0}
+  myObject: {fileID: 11400000, guid: 7b9e0a90d13ac4a2e80bf5bef32e62eb, type: 2}

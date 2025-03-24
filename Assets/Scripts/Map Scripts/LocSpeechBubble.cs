@@ -9,7 +9,7 @@ public class LocSpeechBubble : MonoBehaviour
     public TMP_Text _title;
     public GameObject speechBubble;
     public NPC myNPC;
-    public ClickableObject currentObject;
+    public GeneralObject currentObject;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class LocSpeechBubble : MonoBehaviour
         speechBubble.SetActive(false);
         if (myNPC.kc_list.Count > 0)
         {
-            if (myNPC.kc_list[0].inKnowledgeCheck)
+            if (myNPC.kc_list[0].inKnowledgeCheck && myNPC.kc_list[0] is ClickableObject)
             {
                 currentObject = myNPC.kc_list[0];
                 gameObject.SetActive(true);
@@ -36,7 +36,7 @@ public class LocSpeechBubble : MonoBehaviour
     {
         if (myNPC.kc_list.Count > 0)
         {
-            if (!myNPC.kc_list[0].inKnowledgeCheck)
+            if (!myNPC.kc_list[0].inKnowledgeCheck && myNPC.kc_list[0] is ClickableObject)
             {
                 _title.text = "Thank you!";
                 myNPC.kc_list.Remove(currentObject);
