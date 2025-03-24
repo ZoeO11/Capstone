@@ -7,15 +7,18 @@ public class ClickableObjectsHandler : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text _title;
-    public ClickableObject myObject;
+    public GeneralObject myObject;
+    public GameObject panel;
     // Start is called before the first frame update
     public void Start()
     {
         _title.gameObject.SetActive(false);
+        panel.gameObject.SetActive(false);
     }
     private void OnMouseDown()
     {
         _title.gameObject.SetActive(true);
+        panel.gameObject.SetActive(true);
         _title.text = myObject.name;
         if (myObject.inKnowledgeCheck){
             myObject.knowledgeLevel++;

@@ -10,6 +10,7 @@ public class TextBubbleManager : MonoBehaviour
     public GameObject speechBubble;
     public GameObject ExPoint;
     public NPC myNPC;
+    public string task;
 
     public void Start()
     {
@@ -29,8 +30,17 @@ public class TextBubbleManager : MonoBehaviour
         ExPoint.SetActive(false);
         _title.gameObject.SetActive(true);
         speechBubble.SetActive(true);
-        string task = $"Find the {myNPC.kc_list[0].name}.";
+        if(myNPC.kc_list[0] is ClickableObject)
+        {
+            task = $"Find the {myNPC.kc_list[0].name}.";
+        }
+        if (myNPC.kc_list[0] is MoveableObject)
+        {
+            task = $"Bring me the {myNPC.kc_list[0].name}.";
+        }
         _title.text = task;
         myNPC.kc_list[0].inKnowledgeCheck = true;
     }
+    
+
 }

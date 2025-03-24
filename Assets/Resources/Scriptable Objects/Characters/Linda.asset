@@ -10,6 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 193f82411a4ff41f68de6248f1cf9b49, type: 3}
-  m_Name: Dan
+  m_Name: Linda
   m_EditorClassIdentifier: 
-  kc_list: []
+  kc_list:
+  - {fileID: 11400000, guid: 7b9e0a90d13ac4a2e80bf5bef32e62eb, type: 2}
+  myCollider: {fileID: 0}
+  myText: {fileID: 0}

@@ -8,9 +8,9 @@ public class MainCam : MonoBehaviour
     public bool ifMove;
     public Vector3 dir = new Vector3(0, 0, 0);
     public int speed = 5;
-    public new Button rightButton;
-    public new Button leftButton;
-    public new GameObject inventoryColider;
+    public Button rightButton;
+    public Button leftButton;
+    public GameObject inventoryColider;
     // Update is called once per frame
     
     void Update()
