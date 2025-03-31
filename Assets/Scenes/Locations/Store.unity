@@ -356,6 +356,7 @@ MonoBehaviour:
   rightButton: {fileID: 925010482}
   leftButton: {fileID: 1944295115}
   inventoryColider: {fileID: 1095530540}
+  screenBlocker: {fileID: 0}
 --- !u!1 &24846726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1546,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 399083152417381634, guid: f33202ec4a17c4c73b15b5472cd97411, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 399083152417381634, guid: f33202ec4a17c4c73b15b5472cd97411, type: 3}
+      propertyPath: m_TagString
+      value: DisplayText
+      objectReference: {fileID: 0}
     - target: {fileID: 5813921848644868454, guid: f33202ec4a17c4c73b15b5472cd97411, type: 3}
       propertyPath: m_Name
       value: Ui
@@ -3846,10 +3855,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1446411520870524454, guid: d06069bf5fed24e72aa2dabca8cabb21, type: 3}
-      propertyPath: _title
-      value: 
-      objectReference: {fileID: 1769405336}
     - target: {fileID: 6214747654024083163, guid: d06069bf5fed24e72aa2dabca8cabb21, type: 3}
       propertyPath: myCollider
       value: 
@@ -6241,17 +6246,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b0c17ae26d142d799db716f3c157b4, type: 3}
---- !u!114 &1769405336 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8770229149139078812, guid: f33202ec4a17c4c73b15b5472cd97411, type: 3}
-  m_PrefabInstance: {fileID: 415040667}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1776311562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6311,7 +6305,7 @@ PrefabInstance:
     - target: {fileID: 1157521673597824106, guid: b3fad3e23258f4f32ab9f91561758679, type: 3}
       propertyPath: newCollider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 275737003}
     - target: {fileID: 1414740903476229705, guid: b3fad3e23258f4f32ab9f91561758679, type: 3}
       propertyPath: m_Camera
       value: 
@@ -7177,7 +7171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4201057938066034674, guid: c16155ad9175d44c48a18f42ccb090c0, type: 3}
       propertyPath: m_Name
-      value: Collider
+      value: InventoryCollider
       objectReference: {fileID: 0}
     - target: {fileID: 9205843653756398801, guid: c16155ad9175d44c48a18f42ccb090c0, type: 3}
       propertyPath: m_LocalScale.x

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4086300061256621430}
   - component: {fileID: 2826419033970207370}
   - component: {fileID: 8770229149139078812}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: DisplayText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 9184748840416259080}
   - component: {fileID: 523890582109181865}
   - component: {fileID: 2753642967427108370}
+  - component: {fileID: 6301572067282641948}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -341,6 +342,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6301572067282641948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5409832526350410735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dda2d62811644dabce1f5b4eeb17d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textToFollow: {fileID: 8770229149139078812}
 --- !u!1 &5813921848644868454
 GameObject:
   m_ObjectHideFlags: 0

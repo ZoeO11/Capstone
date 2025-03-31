@@ -11,6 +11,7 @@ public class MainCam : MonoBehaviour
     public Button rightButton;
     public Button leftButton;
     public GameObject inventoryColider;
+    public GameObject screenBlocker;
     // Update is called once per frame
     
     void Update()
@@ -35,6 +36,7 @@ public class MainCam : MonoBehaviour
             else
             { transform.Translate(dir * Time.deltaTime * speed);
               inventoryColider.transform.Translate(dir * Time.deltaTime * speed);
+              screenBlocker.transform.Translate(dir * Time.deltaTime * speed);
             }
             
         }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class MoveableObject : GeneralObject
-{
-    public Sprite icon;
+{ 
     public GameObject prefab;
 }

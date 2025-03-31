@@ -11,6 +11,8 @@ public class TextBubbleManager : MonoBehaviour
     public GameObject ExPoint;
     public NPC myNPC;
     public string task;
+    public SpriteRenderer verb;
+    public SpriteRenderer noun;
 
     public void Start()
     {
@@ -36,7 +38,18 @@ public class TextBubbleManager : MonoBehaviour
         }
         if (myNPC.kc_list[0] is MoveableObject)
         {
-            task = $"Bring me the {myNPC.kc_list[0].name}.";
+            if (myNPC.kc_list[0].knowledgeLevel == 1)
+            {
+                Sprite find = Resources.Load<Sprite>("SpriteExamples/rock");
+                verb.sprite = find;
+                noun.sprite = myNPC.kc_list[0].icon;
+            }
+            else
+            {
+                task = $"Bring me the {myNPC.kc_list[0].name}.";
+                _title.text = task;
+                _title.gameObject.SetActive(true);
+            }
         }
         _title.text = task;
         myNPC.kc_list[0].inKnowledgeCheck = true;
