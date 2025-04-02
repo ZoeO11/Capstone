@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 5256196388100884307}
   - component: {fileID: 4220493598444896053}
   - component: {fileID: 6214747654024083163}
-  - component: {fileID: 2446349153419137278}
-  - component: {fileID: 7854328684162417294}
-  - component: {fileID: 4039316109836929158}
+  - component: {fileID: 7388533590473152588}
+  - component: {fileID: 8256227299053620990}
+  - component: {fileID: 2061910470878914689}
   m_Layer: 0
-  m_Name: Orange Prefab
+  m_Name: Pepper Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 9134152091782562993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.162, y: -1.148, z: -1}
-  m_LocalScale: {x: 0.34, y: 0.34593, z: 0.34593}
+  m_LocalPosition: {x: 1.1226, y: -1.3306, z: -1}
+  m_LocalScale: {x: 0.306782, y: 0.31213266, z: 0.31213266}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f45a9791e2b0b45b7bf89b9c810e5cba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a9b83ad7e63584dad95d18607df140f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49b45abc9a554a449dfb961a1997332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectData: {fileID: 11400000, guid: 2b1f01d3b6a5b4e389809bf5d5872af4, type: 2}
+  objectData: {fileID: 11400000, guid: 405d5561a62c341f0a3902552a150ece, type: 2}
 --- !u!61 &4220493598444896053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.42, y: 1.27}
+    oldSize: {x: 2.25, y: 1.22}
     newSize: {x: 1.83, y: 1.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,13 +160,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e968bd86b00b41099e32ddd9b3676ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveableObject: {fileID: 11400000, guid: 2b1f01d3b6a5b4e389809bf5d5872af4, type: 2}
+  moveableObject: {fileID: 11400000, guid: 405d5561a62c341f0a3902552a150ece, type: 2}
   inventory: {fileID: 11400000, guid: 8caa286db25184782adb722cfb59b0c4, type: 2}
   inventoryDisplay: {fileID: 0}
   myCollider: {fileID: 0}
   isBeingDragged: 0
   currentObject: {fileID: 0}
---- !u!50 &2446349153419137278
+--- !u!50 &7388533590473152588
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7854328684162417294
+--- !u!114 &8256227299053620990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e0954b45dfa4a5e97e2fd4fe5a49fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4039316109836929158
+--- !u!114 &2061910470878914689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,4 +217,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d186aafbf4d4ac8898f8fa9dfd739a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myObject: {fileID: 11400000, guid: 2b1f01d3b6a5b4e389809bf5d5872af4, type: 2}
+  myObject: {fileID: 11400000, guid: 405d5561a62c341f0a3902552a150ece, type: 2}
