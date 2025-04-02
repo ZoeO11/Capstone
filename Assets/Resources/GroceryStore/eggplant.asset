@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47b1b20ce6ea42b8867304dfcbbe355, type: 3}
-  m_Name: orange
+  m_Name: eggplant
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: f45a9791e2b0b45b7bf89b9c810e5cba, type: 3}
-  objectName: orange
+  icon: {fileID: 21300000, guid: 946be96664e604ef9b603e9120bf601f, type: 3}
+  objectName: eggplant
   interaction_count: 0
   knowledgeLevel: 0
   inKnowledgeCheck: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
-  prefab: {fileID: 9134152091782562993, guid: 9c71dfa09cd9d45528a860eae44fc796, type: 3}
+  prefab: {fileID: 9134152091782562993, guid: d06069bf5fed24e72aa2dabca8cabb21, type: 3}
