@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47b1b20ce6ea42b8867304dfcbbe355, type: 3}
-  m_Name: apple
+  m_Name: avocado
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: e2421064543cc4969b017f89ddd59572, type: 3}
-  objectName: apple
-  interaction_count: 0
-  knowledgeLevel: 0
+  icon: {fileID: 21300000, guid: 56c6ec22cd55147d7b96764f5d07299d, type: 3}
+  objectName: avocado
+  interaction_count: 3
+  knowledgeLevel: 1
   inKnowledgeCheck: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
-  prefab: {fileID: 9134152091782562993, guid: d06069bf5fed24e72aa2dabca8cabb21, type: 3}
+  prefab: {fileID: 9134152091782562993, guid: e24af238d2b9a423a98b5ea42e2e1ac7, type: 3}
