@@ -18,3 +18,4 @@ MonoBehaviour:
   knowledgeLevel: 0
   inKnowledgeCheck: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
+  audioClip: {fileID: 8300000, guid: 3a64689af9de448589e1346b126a0533, type: 3}

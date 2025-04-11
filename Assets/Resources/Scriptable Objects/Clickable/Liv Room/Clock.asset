@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba07a460bf8c4940969c0e61eea3274, type: 3}
   m_Name: Clock
   m_EditorClassIdentifier: 
-  objectName: Clock
-  interaction_count: 0
-  character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
-  knowledgeLevel: 0
+  icon: {fileID: 0}
+  objectName: clock
+  interaction_count: 5
+  knowledgeLevel: 1
   inKnowledgeCheck: 0
+  character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
+  audioClip: {fileID: 8300000, guid: f7c003282dfc84b4a835823ddca7df01, type: 3}

@@ -9,7 +9,12 @@ public class LoadOnTouchOrMouse : MonoBehaviour
     private string Scene;
     void OnMouseDown()
     {
+        StartCoroutine(PlayAudioWithDelay());
+
+    }
+    IEnumerator PlayAudioWithDelay()
+    {
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(Scene);
     }
-
 }
