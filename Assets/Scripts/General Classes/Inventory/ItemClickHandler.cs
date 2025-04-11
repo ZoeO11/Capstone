@@ -9,7 +9,7 @@ public class ItemClickHandler : MonoBehaviour
     public Collider2D myCollider;
     public bool isBeingDragged = false;
     public GeneralObject currentObject;
-
+    
     public void OnMouseDown()
     {
         isBeingDragged = true;

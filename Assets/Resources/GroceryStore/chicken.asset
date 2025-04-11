@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47b1b20ce6ea42b8867304dfcbbe355, type: 3}
+  m_Name: chicken
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 39e629a0366b54a1685a8b34128803d3, type: 3}
+  objectName: ' chicken'
+  interaction_count: 0
+  knowledgeLevel: 0
+  inKnowledgeCheck: 0
+  character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
+  audioClip: {fileID: 8300000, guid: c3de4e7de8bc24b38937cc629b9f79e4, type: 3}
+  prefab: {fileID: 9134152091782562993, guid: d06069bf5fed24e72aa2dabca8cabb21, type: 3}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 54d9fb35cf7c04aec8dedd72531a1192, type: 3}
   objectName: window
-  interaction_count: 0
+  interaction_count: 1
   knowledgeLevel: 0
   inKnowledgeCheck: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
+  audioClip: {fileID: 8300000, guid: 8a10eb30f43e04188a479c21f59a0f05, type: 3}

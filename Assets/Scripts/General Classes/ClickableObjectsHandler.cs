@@ -6,7 +6,13 @@ using TMPro;
 public class ClickableObjectsHandler : MonoBehaviour
 { 
     public GeneralObject myObject;
+    public AudioSource audioSource;
     // Start is called before the first frame update
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false; // We want to trigger it manually
+    }
     public void Start()
     {
         GameObject displayObj = GameObject.FindGameObjectWithTag("DisplayText");
@@ -18,6 +24,16 @@ public class ClickableObjectsHandler : MonoBehaviour
     }
     public void OnMouseDown()
     {
+        if (myObject != null && myObject.audioClip != null)
+        {
+            Debug.Log($"Playing audio for: {myObject.objectName}");
+            audioSource.clip = myObject.audioClip;
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No audio clip assigned in ScriptableObject.");
+        }
         GameObject displayObj = GameObject.FindGameObjectWithTag("DisplayText");
         TextMeshProUGUI tmp = displayObj.GetComponent<TextMeshProUGUI>();
         Color originalColor = tmp.color;
