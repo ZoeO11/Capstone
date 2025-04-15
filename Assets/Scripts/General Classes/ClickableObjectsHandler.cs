@@ -62,7 +62,7 @@ public class ClickableObjectsHandler : MonoBehaviour
             }
 
         }
-        else if (myObject.interaction_count == 13)
+        else if (myObject.interaction_count == 10)
         {
 
             if (!myObject.character_for_KC.kc_list.Contains(myObject))
