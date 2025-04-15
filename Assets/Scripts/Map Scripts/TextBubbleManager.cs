@@ -34,14 +34,34 @@ public class TextBubbleManager : MonoBehaviour
         speechBubble.SetActive(true);
         if(myNPC.kc_list[0] is ClickableObject)
         {
-            task = $"Find the {myNPC.kc_list[0].name}.";
+            if (myNPC.kc_list[0].knowledgeLevel == 1)
+            {
+                Sprite find = Resources.Load<Sprite>("Map/magnifying");
+                verb.sprite = find;
+                noun.sprite = myNPC.kc_list[0].icon;
+            }
+            else if (myNPC.kc_list[0].knowledgeLevel == 2)
+            {
+                Sprite find = Resources.Load<Sprite>("Map/magnifying");
+                verb.sprite = find;
+                noun.sprite = myNPC.kc_list[0].icon;
+                task = $"Find the {myNPC.kc_list[0].name}.";
+                _title.text = task;
+                _title.gameObject.SetActive(true);
+            }
+            else
+            {
+                task = $"Find the {myNPC.kc_list[0].name}.";
+                _title.text = task;
+                _title.gameObject.SetActive(true);
+            }
         }
         if (myNPC.kc_list[0] is MoveableObject)
         {
             if (myNPC.kc_list[0].knowledgeLevel == 1)
             {
-                Sprite find = Resources.Load<Sprite>("SpriteExamples/rock");
-                verb.sprite = find;
+                Sprite bring = Resources.Load<Sprite>("SpriteExamples/rock");
+                verb.sprite = bring;
                 noun.sprite = myNPC.kc_list[0].icon;
             }
             else

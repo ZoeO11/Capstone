@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Locations/Restaurant.unity
     guid: 5e7e5bb84fbe542a08f0b7a6f006c46c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Locations/Zoo.unity
     guid: 8cc1d362cd936499e9f2a558b4b70ecc
   - enabled: 1
@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Locations/Home/Bedroom.unity
     guid: 75318e903973c4ddba8ab7fdcb5ba291
+  - enabled: 1
+    path: Assets/Scenes/Locations/Home/Bedroom1.unity
+    guid: ea8f9de20f466444198ae614949e5d70
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 600e9845791e44c8783b4251d5caf3ed, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 8bf1d998eda624373a89ceb58ba00f46, type: 2}
