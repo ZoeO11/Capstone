@@ -148,8 +148,8 @@ Transform:
   m_GameObject: {fileID: 10071095}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.31, y: -0.15, z: -3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3, y: 0.1, z: -3}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 718918508}
@@ -584,6 +584,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lindatext
       objectReference: {fileID: 0}
+    - target: {fileID: 1303313000323703486, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.13811232
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303313000323703486, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.13811232
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303313000323703486, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.13811232
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303313000323703486, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303313000323703486, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.72
+      objectReference: {fileID: 0}
     - target: {fileID: 3611875582974425247, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.37
@@ -624,10 +644,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3885106688306513693, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.24
+      objectReference: {fileID: 0}
     - target: {fileID: 6191775325341039109, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1fb5740b7956649bf966e581ccb931f2, type: 3}
+      objectReference: {fileID: 21300000, guid: 1d41bc240da0744448651a23fbf87750, type: 3}
     - target: {fileID: 6487579946855787423, guid: 7f31e8d37909844b390c9c4cd6662973, type: 3}
       propertyPath: m_Name
       value: Linda
@@ -974,8 +998,8 @@ Transform:
   m_GameObject: {fileID: 1027243767}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.99, y: -0.18, z: -3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.78, y: 0.1, z: -3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 718918508}

@@ -9,7 +9,10 @@ public class ItemClickHandler : MonoBehaviour
     public Collider2D myCollider;
     public bool isBeingDragged = false;
     public GeneralObject currentObject;
-    
+    public SpriteRenderer verb;
+    public SpriteRenderer noun;
+    public Sprite empty;
+
     public void OnMouseDown()
     {
         isBeingDragged = true;
@@ -30,8 +33,8 @@ public class ItemClickHandler : MonoBehaviour
         CheckIfDroppedOnInventory();
         if(moveableObject.inKnowledgeCheck == true)
         {
-            CheckIfDroppedOnChar();
             currentObject = moveableObject.character_for_KC.kc_list[0];
+            CheckIfDroppedOnChar();
         }
     }
     public void CheckIfDroppedOnInventory()
@@ -69,8 +72,9 @@ public class ItemClickHandler : MonoBehaviour
             if(moveableObject.character_for_KC.myCollider.OverlapPoint(transform.position))
             {
                 moveableObject.knowledgeLevel++;
+                moveableObject.interaction_count++;
                 moveableObject.inKnowledgeCheck = false;
-                moveableObject.character_for_KC.kc_list.Remove(currentObject);
+                //moveableObject.character_for_KC.kc_list.Remove(currentObject);
                 moveableObject.character_for_KC.myText.text = "Thank you!";
                 Destroy(gameObject);
 
