@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 1f52a5e64cb65490681dd71a06e5aa66, type: 3}
   objectName: blueberries
-  interaction_count: 2
+  interaction_count: 4
   knowledgeLevel: 1
   inKnowledgeCheck: 0
   kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: c861a192aa43a47c183cfdda05bc48f4, type: 3}
   prefab: {fileID: 9134152091782562993, guid: 1a9a7a3de1f124ad0a876beaea6fbab7, type: 3}

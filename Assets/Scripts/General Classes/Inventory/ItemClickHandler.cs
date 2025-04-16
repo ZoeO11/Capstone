@@ -34,7 +34,10 @@ public class ItemClickHandler : MonoBehaviour
         if(moveableObject.character_for_KC.kc_list.Count > 0)
         {
             currentObject = moveableObject.character_for_KC.kc_list[0];
-            CheckIfDroppedOnChar();
+            if(moveableObject == currentObject)
+            {
+                CheckIfDroppedOnChar();
+            }
         }
     }
     public void CheckIfDroppedOnInventory()

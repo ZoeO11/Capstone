@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Door
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 35e999716e46c40f8981dc43706938f6, type: 3}
-  objectName: 
-  interaction_count: 11
-  knowledgeLevel: 3
+  objectName: door
+  interaction_count: 0
+  knowledgeLevel: 0
   inKnowledgeCheck: 0
+  kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
   audioClip: {fileID: 8300000, guid: 9233984b3fd2d474bb7143a14105ffa6, type: 3}
