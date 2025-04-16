@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 3a83a1dffd348482086b00c1c09783b4, type: 3}
   objectName: plant
-  interaction_count: 10
-  knowledgeLevel: 2
-  inKnowledgeCheck: 1
+  interaction_count: 0
+  knowledgeLevel: 0
+  inKnowledgeCheck: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
   audioClip: {fileID: 8300000, guid: 3c761fcda45f346829c203cdb455d58d, type: 3}

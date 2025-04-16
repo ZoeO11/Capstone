@@ -78,8 +78,18 @@ public class ClickableObjectsHandler : MonoBehaviour
             if (!myObject.character_for_KC.kc_list.Contains(myObject))
             {
                 myObject.character_for_KC.kc_list.Add(myObject);
+                myObject.inKnowledgeCheck = true;
             }
 
+        }
+        else if (myObject.interaction_count == 15)
+        {
+
+            if (!myObject.character_for_KC.kc_list.Contains(myObject))
+            {
+                myObject.character_for_KC.kc_list.Add(myObject);
+                myObject.inKnowledgeCheck = true;
+            }
         }
         else
         {

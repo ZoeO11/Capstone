@@ -48,55 +48,70 @@ public class TextBubbleManager : MonoBehaviour
     }
     void OnMouseDown()
     {
-        exRen.enabled = false;
-        _title.gameObject.SetActive(true);
-        speechBubble.SetActive(true);
-        verb.enabled = true;
-        noun.enabled = true;
-        if (myNPC.kc_list.Count > 0)
+        if (exRen.enabled)
         {
-            if (myNPC.kc_list[0] is ClickableObject)
+            exRen.enabled = false;
+            _title.gameObject.SetActive(true);
+            speechBubble.SetActive(true);
+            verb.enabled = true;
+            noun.enabled = true;
+            if (myNPC.kc_list.Count > 0)
             {
-                if (myNPC.kc_list[0].knowledgeLevel == 1)
+                if (myNPC.kc_list[0] is ClickableObject)
                 {
-                    Sprite find = Resources.Load<Sprite>("Map/magnifying");
-                    verb.sprite = find;
-                    noun.sprite = myNPC.kc_list[0].icon;
+                    if (myNPC.kc_list[0].knowledgeLevel == 1)
+                    {
+                        Sprite find = Resources.Load<Sprite>("Map/magnifying");
+                        verb.sprite = find;
+                        noun.sprite = myNPC.kc_list[0].icon;
+                    }
+                    else if (myNPC.kc_list[0].knowledgeLevel == 2)
+                    {
+                        Sprite find = Resources.Load<Sprite>("Map/magnifying");
+                        verb.sprite = find;
+                        noun.sprite = myNPC.kc_list[0].icon;
+                        task = $"Find the {myNPC.kc_list[0].name}.";
+                        _title.text = task;
+                        _title.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        task = $"Find the {myNPC.kc_list[0].name}.";
+                        _title.text = task;
+                        _title.gameObject.SetActive(true);
+                    }
                 }
-                else if (myNPC.kc_list[0].knowledgeLevel == 2)
+                if (myNPC.kc_list[0] is MoveableObject)
                 {
-                    Sprite find = Resources.Load<Sprite>("Map/magnifying");
-                    verb.sprite = find;
-                    noun.sprite = myNPC.kc_list[0].icon;
-                    task = $"Find the {myNPC.kc_list[0].name}.";
-                    _title.text = task;
-                    _title.gameObject.SetActive(true);
+                    if (myNPC.kc_list[0].knowledgeLevel == 1)
+                    {
+                        Sprite bring = Resources.Load<Sprite>("NPCs/linda/bring-07");
+                        verb.sprite = bring;
+                        noun.sprite = myNPC.kc_list[0].icon;
+                    }
+                    else if (myNPC.kc_list[0].knowledgeLevel == 2)
+                    {
+                        Sprite find = Resources.Load<Sprite>("NPCs/linda/bring-07");
+                        verb.sprite = find;
+                        noun.sprite = myNPC.kc_list[0].icon;
+                        task = $"Bring me the {myNPC.kc_list[0].name}.";
+                        _title.text = task;
+                        _title.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        verb.enabled = false;
+                        noun.enabled = false;
+                        task = $"Bring me the {myNPC.kc_list[0].name}.";
+                        _title.text = task;
+                        _title.gameObject.SetActive(true);
+                    }
                 }
-                else
-                {
-                    task = $"Find the {myNPC.kc_list[0].name}.";
-                    _title.text = task;
-                    _title.gameObject.SetActive(true);
-                }
+                _title.text = task;
+                myNPC.kc_list[0].inKnowledgeCheck = true;
             }
-            if (myNPC.kc_list[0] is MoveableObject)
-            {
-                if (myNPC.kc_list[0].knowledgeLevel == 1)
-                {
-                    Sprite bring = Resources.Load<Sprite>("NPCs/linda/bring-07");
-                    verb.sprite = bring;
-                    noun.sprite = myNPC.kc_list[0].icon;
-                }
-                else
-                {
-                    task = $"Bring me the {myNPC.kc_list[0].name}.";
-                    _title.text = task;
-                    _title.gameObject.SetActive(true);
-                }
-            }
-            _title.text = task;
-            myNPC.kc_list[0].inKnowledgeCheck = true;
-        } }
+        }
+    }
     }
     
 
