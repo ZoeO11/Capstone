@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47b1b20ce6ea42b8867304dfcbbe355, type: 3}
   m_Name: tomato
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 4a6d93385d4e644fd9cc1c48f3bc1fdd, type: 3}
+  icon: {fileID: 21300000, guid: 4705c631d65bc4ed8823717ae796149e, type: 3}
   objectName: tomato
   interaction_count: 0
   knowledgeLevel: 0
   inKnowledgeCheck: 0
+  kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
   audioClip: {fileID: 8300000, guid: 07cdeb74403984ce68245ae2b2f08828, type: 3}
   prefab: {fileID: 9134152091782562993, guid: 6edaf8bc4097643f19a5b45c8b5b097b, type: 3}

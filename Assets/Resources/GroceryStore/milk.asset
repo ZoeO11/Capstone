@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47b1b20ce6ea42b8867304dfcbbe355, type: 3}
   m_Name: milk
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5a2e5a54bb92f4cd598e3e7679b6b603, type: 3}
+  icon: {fileID: 21300000, guid: 973e7ebedb9a141e4b8e99c8f4eccbc1, type: 3}
   objectName: milk
   interaction_count: 0
   knowledgeLevel: 0
   inKnowledgeCheck: 0
+  kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
   audioClip: {fileID: 8300000, guid: a4f54eb54e87b469f88906d588014eed, type: 3}
   prefab: {fileID: 9134152091782562993, guid: cf208dcd4038e4e90a07ce7c0a56b095, type: 3}

@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47b1b20ce6ea42b8867304dfcbbe355, type: 3}
-  m_Name: cake mix
+  m_Name: fish
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: ef61e74a6065f4ebd93eb0cdb73ace6e, type: 3}
-  objectName: cake mix
-  interaction_count: 0
+  icon: {fileID: 21300000, guid: a07f3357e7581420497cba4043a8c32c, type: 3}
+  objectName: fish
+  interaction_count: 1
   knowledgeLevel: 0
   inKnowledgeCheck: 0
+  kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
-  prefab: {fileID: 9134152091782562993, guid: 49b7c5f19e105459c967c5ffc92d74b5, type: 3}
+  audioClip: {fileID: 0}
+  prefab: {fileID: 9134152091782562993, guid: 1a1f0bb1662364b74b7647796cedb5b7, type: 3}
