@@ -49,12 +49,13 @@ public class ClickableObjectsHandler : MonoBehaviour
             //panel.gameObject.SetActive(true);
             tmp.text = myObject.name;
         }
-        if (myObject.inKnowledgeCheck){
+        if (myObject.kcStarted){
             if (myObject is ClickableObject)
             {
                 myObject.knowledgeLevel++;
                 myObject.interaction_count++;
                 myObject.inKnowledgeCheck = false;
+                myObject.kcStarted = false;
             }   
         }
         else if (myObject.interaction_count == 1)

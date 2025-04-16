@@ -13,7 +13,6 @@ public class TextBubbleManager : MonoBehaviour
     public string task;
     public SpriteRenderer verb;
     public SpriteRenderer noun;
-    public Sprite empty;
     public GeneralObject currentObject;
     public SpriteRenderer exRen;
 
@@ -57,6 +56,7 @@ public class TextBubbleManager : MonoBehaviour
             noun.enabled = true;
             if (myNPC.kc_list.Count > 0)
             {
+                myNPC.kc_list[0].kcStarted = true;
                 if (myNPC.kc_list[0] is ClickableObject)
                 {
                     if (myNPC.kc_list[0].knowledgeLevel == 1)

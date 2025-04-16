@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 00688bbf22140428d999f3b378f1c7de, type: 3}
   objectName: painting
-  interaction_count: 10
+  interaction_count: 6
   knowledgeLevel: 2
   inKnowledgeCheck: 0
+  kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
   audioClip: {fileID: 8300000, guid: 8ac8931a2dfc9491ea4d6398ee98d0a8, type: 3}

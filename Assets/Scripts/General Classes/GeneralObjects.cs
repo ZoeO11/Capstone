@@ -9,6 +9,7 @@ public class GeneralObject : ScriptableObject
     public int interaction_count;
     public int knowledgeLevel;
     public bool inKnowledgeCheck;
+    public bool kcStarted;
     public NPC character_for_KC;
     public AudioClip audioClip;
 
