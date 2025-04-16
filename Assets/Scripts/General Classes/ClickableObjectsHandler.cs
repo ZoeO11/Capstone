@@ -15,12 +15,15 @@ public class ClickableObjectsHandler : MonoBehaviour
     }
     public void Start()
     {
-        GameObject displayObj = GameObject.FindGameObjectWithTag("DisplayText");
-        TextMeshProUGUI tmp = displayObj.GetComponent<TextMeshProUGUI>();
-        Color originalColor = tmp.color;
-        originalColor.a = 0f; // Set alpha to 0
-        tmp.color = originalColor;
-        //panel.gameObject.SetActive(false);
+        if (GameObject.FindGameObjectWithTag("DisplayText") != null)
+        {
+            GameObject displayObj = GameObject.FindGameObjectWithTag("DisplayText");
+            TextMeshProUGUI tmp = displayObj.GetComponent<TextMeshProUGUI>();
+            Color originalColor = tmp.color;
+            originalColor.a = 0f; // Set alpha to 0
+            tmp.color = originalColor;
+            //panel.gameObject.SetActive(false);
+        }
     }
     public void OnMouseDown()
     {
@@ -34,19 +37,25 @@ public class ClickableObjectsHandler : MonoBehaviour
         {
             Debug.LogWarning("No audio clip assigned in ScriptableObject.");
         }
-        GameObject displayObj = GameObject.FindGameObjectWithTag("DisplayText");
-        TextMeshProUGUI tmp = displayObj.GetComponent<TextMeshProUGUI>();
-        Color originalColor = tmp.color;
-        originalColor.a = 1f; 
-        tmp.color = originalColor;
+        if (GameObject.FindGameObjectWithTag("DisplayText") != null)
+        {
+            GameObject displayObj = GameObject.FindGameObjectWithTag("DisplayText");
+            TextMeshProUGUI tmp = displayObj.GetComponent<TextMeshProUGUI>();
+            Color originalColor = tmp.color;
+            originalColor.a = 1f;
+            tmp.color = originalColor;
 
-        StartCoroutine(HideTextAfterDelay(3f,tmp));
-        //panel.gameObject.SetActive(true);
-        tmp.text = myObject.name;
+            StartCoroutine(HideTextAfterDelay(3f, tmp));
+            //panel.gameObject.SetActive(true);
+            tmp.text = myObject.name;
+        }
         if (myObject.inKnowledgeCheck){
-            myObject.knowledgeLevel++;
-            myObject.interaction_count++;
-            myObject.inKnowledgeCheck = false;
+            if (myObject is ClickableObject)
+            {
+                myObject.knowledgeLevel++;
+                myObject.interaction_count++;
+                myObject.inKnowledgeCheck = false;
+            }   
         }
         else if (myObject.interaction_count == 1)
         {
@@ -59,6 +68,7 @@ public class ClickableObjectsHandler : MonoBehaviour
             if (!myObject.character_for_KC.kc_list.Contains(myObject))
             {
                 myObject.character_for_KC.kc_list.Add(myObject);
+                myObject.inKnowledgeCheck = true;
             }
 
         }
@@ -68,8 +78,18 @@ public class ClickableObjectsHandler : MonoBehaviour
             if (!myObject.character_for_KC.kc_list.Contains(myObject))
             {
                 myObject.character_for_KC.kc_list.Add(myObject);
+                myObject.inKnowledgeCheck = true;
             }
 
+        }
+        else if (myObject.interaction_count == 15)
+        {
+
+            if (!myObject.character_for_KC.kc_list.Contains(myObject))
+            {
+                myObject.character_for_KC.kc_list.Add(myObject);
+                myObject.inKnowledgeCheck = true;
+            }
         }
         else
         {

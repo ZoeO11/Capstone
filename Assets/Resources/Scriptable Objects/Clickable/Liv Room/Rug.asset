@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba07a460bf8c4940969c0e61eea3274, type: 3}
   m_Name: Rug
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5b6b7ec8be7f14b5184336829614952e, type: 3}
+  icon: {fileID: 21300000, guid: 872272096d2a2408f8b4a406975b404a, type: 3}
   objectName: rug
-  interaction_count: 0
-  knowledgeLevel: 0
-  inKnowledgeCheck: 0
+  interaction_count: 15
+  knowledgeLevel: 3
+  inKnowledgeCheck: 1
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
   audioClip: {fileID: 8300000, guid: 50e0a728b33204223bb886b1cfb8bb56, type: 3}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba07a460bf8c4940969c0e61eea3274, type: 3}
   m_Name: Phone
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: bd86985a8fa7a46238dae02149cf1ab2, type: 3}
+  icon: {fileID: 21300000, guid: 17de8d03cabb7480e9e3445d78c49b4b, type: 3}
   objectName: phone
-  interaction_count: 0
+  interaction_count: 1
   knowledgeLevel: 0
   inKnowledgeCheck: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
