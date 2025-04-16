@@ -30,7 +30,7 @@ public class ClickableObjectsHandler : MonoBehaviour
         if (myObject != null && myObject.audioClip != null)
         {
             Debug.Log($"Playing audio for: {myObject.objectName}");
-            audioSource.clip = myObject.audioClip;
+            audioSource.clip = myObject.audio_def_article;
             audioSource.Play();
         }
         else

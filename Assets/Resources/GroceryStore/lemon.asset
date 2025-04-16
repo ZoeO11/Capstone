@@ -20,4 +20,5 @@ MonoBehaviour:
   kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
   audioClip: {fileID: 8300000, guid: bbe1ef1ad7eab4270a9e42e4bf220254, type: 3}
+  audio_def_article: {fileID: 8300000, guid: dddf326108adf4ff198d4e96cb4b02f2, type: 3}
   prefab: {fileID: 9134152091782562993, guid: b5961405364b04c4bb5d174e3a1fff9f, type: 3}

@@ -19,4 +19,5 @@ MonoBehaviour:
   inKnowledgeCheck: 0
   kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: c4fc47bf03ffd4192b6f7247cb68bfec, type: 3}
+  audio_def_article: {fileID: 8300000, guid: 35c425f26dfef400fbab4d17a43e67e0, type: 3}

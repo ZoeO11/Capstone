@@ -78,7 +78,7 @@ public class ItemClickHandler : MonoBehaviour
                 moveableObject.interaction_count++;
                 moveableObject.inKnowledgeCheck = false;
                 //moveableObject.character_for_KC.kc_list.Remove(currentObject);
-                moveableObject.character_for_KC.myText.text = "Thank you!";
+                moveableObject.character_for_KC.myText.text = "Gracias!";
                 Destroy(gameObject);
 
                 Debug.Log("got object");
