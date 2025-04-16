@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47b1b20ce6ea42b8867304dfcbbe355, type: 3}
   m_Name: eggs
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 577a8e30ed9644dfa9c5f24e990fec9a, type: 3}
+  icon: {fileID: 21300000, guid: e8ef3f787e60c4056974983a19706700, type: 3}
   objectName: eggs
   interaction_count: 0
   knowledgeLevel: 0
   inKnowledgeCheck: 0
+  kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
   audioClip: {fileID: 8300000, guid: 54351316239a944a1adf0bfd91f5e7ef, type: 3}
   prefab: {fileID: 9134152091782562993, guid: ca36b138a512746b6933c489844e7ffc, type: 3}
