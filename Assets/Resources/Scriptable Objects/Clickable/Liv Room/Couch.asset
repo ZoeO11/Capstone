@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 6ba11b8018e534ba6ae7379698baf649, type: 3}
   objectName: couch
-  interaction_count: 0
-  knowledgeLevel: 0
-  inKnowledgeCheck: 0
-  kcStarted: 0
+  interaction_count: 5
+  knowledgeLevel: 1
+  inKnowledgeCheck: 1
+  kcStarted: 1
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
   audioClip: {fileID: 8300000, guid: d9384886a3e5b4e978cb328c77a0ca4a, type: 3}
+  audio_def_article: {fileID: 8300000, guid: 3c41381c2abae4d4d923e0bda1fcc4ce, type: 3}

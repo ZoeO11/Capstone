@@ -15,7 +15,10 @@ public class TextBubbleManager : MonoBehaviour
     public SpriteRenderer noun;
     public GeneralObject currentObject;
     public SpriteRenderer exRen;
-
+    public AudioSource audioSource;
+    public AudioClip find;
+    public AudioClip bring;
+   
     public void Start()
     {
         _title.gameObject.SetActive(false);
@@ -59,6 +62,7 @@ public class TextBubbleManager : MonoBehaviour
                 myNPC.kc_list[0].kcStarted = true;
                 if (myNPC.kc_list[0] is ClickableObject)
                 {
+                    StartCoroutine(PlayClipsInSequence(find));
                     if (myNPC.kc_list[0].knowledgeLevel == 1)
                     {
                         Sprite find = Resources.Load<Sprite>("Map/magnifying");
@@ -66,23 +70,24 @@ public class TextBubbleManager : MonoBehaviour
                         noun.sprite = myNPC.kc_list[0].icon;
                     }
                     else if (myNPC.kc_list[0].knowledgeLevel == 2)
-                    {
+                    { 
                         Sprite find = Resources.Load<Sprite>("Map/magnifying");
                         verb.sprite = find;
                         noun.sprite = myNPC.kc_list[0].icon;
-                        task = $"Find the {myNPC.kc_list[0].name}.";
+                        task = $"Encuentra {myNPC.kc_list[0].name}.";
                         _title.text = task;
                         _title.gameObject.SetActive(true);
                     }
                     else
                     {
-                        task = $"Find the {myNPC.kc_list[0].name}.";
+                        task = $"Encuentra {myNPC.kc_list[0].name}.";
                         _title.text = task;
                         _title.gameObject.SetActive(true);
                     }
                 }
                 if (myNPC.kc_list[0] is MoveableObject)
                 {
+                    StartCoroutine(PlayClipsInSequence(bring));
                     if (myNPC.kc_list[0].knowledgeLevel == 1)
                     {
                         Sprite bring = Resources.Load<Sprite>("NPCs/linda/bring-07");
@@ -94,7 +99,7 @@ public class TextBubbleManager : MonoBehaviour
                         Sprite find = Resources.Load<Sprite>("NPCs/linda/bring-07");
                         verb.sprite = find;
                         noun.sprite = myNPC.kc_list[0].icon;
-                        task = $"Bring me the {myNPC.kc_list[0].name}.";
+                        task = $"Tráeme { myNPC.kc_list[0].name}.";
                         _title.text = task;
                         _title.gameObject.SetActive(true);
                     }
@@ -102,7 +107,7 @@ public class TextBubbleManager : MonoBehaviour
                     {
                         verb.enabled = false;
                         noun.enabled = false;
-                        task = $"Bring me the {myNPC.kc_list[0].name}.";
+                        task = $"Tráeme {myNPC.kc_list[0].name}.";
                         _title.text = task;
                         _title.gameObject.SetActive(true);
                     }
@@ -112,6 +117,14 @@ public class TextBubbleManager : MonoBehaviour
             }
         }
     }
+    private IEnumerator PlayClipsInSequence(AudioClip verb)
+    {
+        audioSource.clip = verb;
+        audioSource.Play();
+        yield return new WaitForSeconds(find.length);
+        audioSource.clip = myNPC.kc_list[0].audio_def_article;
+        audioSource.Play();
     }
+}
     
 

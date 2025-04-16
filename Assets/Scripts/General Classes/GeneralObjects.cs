@@ -12,5 +12,5 @@ public class GeneralObject : ScriptableObject
     public bool kcStarted;
     public NPC character_for_KC;
     public AudioClip audioClip;
-
+    public AudioClip audio_def_article;
 }

@@ -47,13 +47,13 @@ public class LocSpeechBubble : MonoBehaviour
                     noun.sprite = myNPC.kc_list[0].icon;
                     _title.gameObject.SetActive(true);
                     speechBubble.SetActive(true);
-                    _title.text = $"Find the {myNPC.kc_list[0].name}.";
+                    _title.text = $"Encuentra {myNPC.kc_list[0].name}.";
                 }
                 else
                 {
                     _title.gameObject.SetActive(true);
                     speechBubble.SetActive(true);
-                    _title.text = $"Find the {myNPC.kc_list[0].name}.";
+                    _title.text = $"Encuentra {myNPC.kc_list[0].name}.";
                 }
             }
 
@@ -69,7 +69,7 @@ public class LocSpeechBubble : MonoBehaviour
                 verb.enabled = false;
                 noun.enabled = false;
                 _title.gameObject.SetActive(true);
-                _title.text = "Thank you!";
+                _title.text = "Gracias!";
                 myNPC.kc_list.Remove(currentObject);
                 currentObject = null;
 

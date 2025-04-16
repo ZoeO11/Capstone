@@ -17,5 +17,7 @@ MonoBehaviour:
   interaction_count: 0
   knowledgeLevel: 0
   inKnowledgeCheck: 0
+  kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}
   audioClip: {fileID: 8300000, guid: f7c003282dfc84b4a835823ddca7df01, type: 3}
+  audio_def_article: {fileID: 8300000, guid: aca82668f41334b1ebd2fb34a0dd0228, type: 3}
