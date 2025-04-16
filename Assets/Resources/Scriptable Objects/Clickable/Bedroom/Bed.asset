@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: cd9bedddaf4ad4c52bb8ed70cbaf986c, type: 3}
   objectName: bed
-  interaction_count: 16
-  knowledgeLevel: 4
+  interaction_count: 0
+  knowledgeLevel: 0
   inKnowledgeCheck: 0
   kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 897fdc18c387344f2aed69df63649a5e, type: 2}

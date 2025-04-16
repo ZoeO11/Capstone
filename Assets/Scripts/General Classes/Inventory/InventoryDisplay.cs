@@ -52,30 +52,19 @@ public class InventoryDisplay : MonoBehaviour
 
     public void DropItem(int index)
     {
-        // Check if the index is valid
         if (index >= 0 && index < inventory.items.Count)
         {
-            // spawning the item in the game world here
             MoveableObject itemToDrop = inventory.items[index];
 
-            // If you want to spawn the item in the game world
             if (itemToDrop != null)
             {
+                // Drop the item in front of the camera instead of random offset
+                Vector3 dropPosition = Camera.main.transform.position + Camera.main.transform.forward * 1.5f;
+                dropPosition.z = -3f;
 
-                Vector3 randomOffset = new Vector3(
-                    Random.Range(-dropPositionRange.x, dropPositionRange.x),
-                    Random.Range(-dropPositionRange.y, dropPositionRange.y),
-                    Random.Range(-dropPositionRange.z, dropPositionRange.z)
-                );
+                GameObject droppedItem = Instantiate(itemToDrop.prefab, dropPosition, Quaternion.identity);
 
-                // Calculate the final drop position.
-                Vector3 dropPosition = dropBasePosition + randomOffset;
-
-                // Example: Instantiate the dropped item in the game world at some position
-                GameObject droppedItem = Instantiate(itemToDrop.prefab, dropPosition, Quaternion.identity); // Change the position as needed
                 ItemClickHandler clickHandler = droppedItem.GetComponent<ItemClickHandler>();
-                //InventoryDisplay inventoryDisplay = ItemClickHandler.inventoryDisplay;
-                //itemToDrop.gameObject.SetActive(true);
                 if (clickHandler != null)
                 {
                     clickHandler.inventoryDisplay = this;
@@ -83,13 +72,10 @@ public class InventoryDisplay : MonoBehaviour
                 }
             }
 
-            // Remove the item from the inventory
             inventory.items.RemoveAt(index);
-
-
-            // Update the UI
             UpdateInventory();
         }
     }
+
 
 }

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 2c5a262fb0c684d01ad8a96eadd87fba, type: 3}
   objectName: pepper
-  interaction_count: 0
-  knowledgeLevel: 0
+  interaction_count: 2
+  knowledgeLevel: 1
   inKnowledgeCheck: 0
   kcStarted: 0
   character_for_KC: {fileID: 11400000, guid: 5f73ddb1a50da48718174ab7a2669d12, type: 2}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 77834aa89fdf544eeae83569019a258b, type: 3}
   prefab: {fileID: 9134152091782562993, guid: 6931900ef20e742ffa98bc30aeca9686, type: 3}
