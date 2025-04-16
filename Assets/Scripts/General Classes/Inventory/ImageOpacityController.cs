@@ -1,18 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class ImageOpacityController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Image img;
+
+    void Awake()
     {
-        
+        img = GetComponent<Image>();
+        UpdateOpacity();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Optional: Check each frame if the sprite changes
+        UpdateOpacity();
+    }
+
+    private void UpdateOpacity()
+    {
+        if (img.sprite == null)
+        {
+            Color color = img.color;
+            color.a = 0f;
+            img.color = color;
+        }
+        else
+        {
+            Color color = img.color;
+            color.a = 1f;
+            img.color = color;
+        }
     }
 }
